@@ -7,29 +7,30 @@
     import "../app.css"
     import Navbar from "$lib/components/Navbar.svelte"
     // import Footer from "$lib/components/Footer.svelte"
-    // import { onMount } from "svelte"
+    import ES from "$lib/images/es.png"
+    import EN from "$lib/images/en.png"
+    import Lang from "$lib/stores/language.store"
+    import type {Languages} from "$lib/stores/language.store"
+    let lang: Languages; 
 
-    let body: HTMLBodyElement;
-    let tracking = false
-    function handleTracking() {
-        tracking = true
-    }
-    function traceMouse(event: MouseEvent) {
-        if (!tracking) return
-        event.clientX
-    }
+    Lang().subscribe((l) => {
+        lang = l
+    })
 </script>
 
-<body class="w-full h-[100vh]" bind:this={body}
-    on:mouseenter={handleTracking} 
-    on:mousemove={traceMouse}
-    >
-
+<body class="w-full h-[100vh]">
     <div class="w-full px-4 md:px-12 h-max">
         <Navbar/>
         <slot></slot>
     </div>
-    <!-- <Footer/> -->
+
+    <span class="bg-black fixed bottom-2 left-2 md:bottom-5 md:left-5 rounded-full hover:drop-shadow-2xl">
+        <button on:click={() => Lang().switchLang()} class="translate-x-1 bg-white border-2 border-black p-2 rounded-full">
+            <img src="{lang === "EN" ? EN : ES}" alt="lang-flag" id="en" class="size-[2rem] md:size-[2.5rem] active:blur-sm active:scale-110 transition-all duration-200 ease-linear">
+        </button>
+    </span>
+
+<!-- <Footer/> -->
 </body>
 
 <style lang="postcss">

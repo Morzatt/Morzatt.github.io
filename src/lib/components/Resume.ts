@@ -8,6 +8,7 @@ type LabExperiences = {
     name: string,
     labours: string[],
 }
+
 const enExperiences: LabExperiences[] = [
     {
         id: 1,
@@ -64,12 +65,27 @@ const esExperiences: LabExperiences[] = [
         name: "Fiverr",
         labours: [
             "Construir, Debuggear y Mantener REST API's",
-
         ]
     }
 ]
 
+const enSoftSkills: string[] = [
+    "Team Work",
+    "Time Management",
+    "Flexibility",
+    "Communication",
+    "Efficiency"
+]
+
+const esSoftSkills: string[] = [
+    "Trabajo en Equipo",
+    "Administración del Tiempo",
+    "Flexibilidad",
+    "Comunicación",
+    "Eficiencia"
+]
+
 export default {
-    enExperiences, 
-    esExperiences
+    experiences: { enExperiences, esExperiences },
+    softSkills: { enSoftSkills, esSoftSkills }
 }

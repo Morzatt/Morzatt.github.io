@@ -9,6 +9,7 @@
     import AboutMe from "$lib/components/AboutMe.svelte"
     import Resume from "$lib/components/Resume.svelte"
     import { onMount } from "svelte";
+    import Projects from "$lib/components/Projects.svelte"
 
     type Content = "resume" | "about";
     let content: Content = "about";
@@ -70,10 +71,8 @@
 
     <br>
 
-    <section class="w-full h-fit lg:h-full flex flex-col items-center justify-center bb">
-        <div>
-
-        </div>
+    <section class="w-full h-fit lg:h-full mt-20">
+        <Projects/>
     </section>
 </main>
 

@@ -20,12 +20,7 @@
 
             <img src="" alt="logo" class="size-10 bb hidden md:block ml-2">
             
-            <ul class="flex items-center justify-center w-full md:w-3/6 lg:w-2/6">
-
-                <button on:click={() => Lang().switchLang()}>
-                    <img src="{lang === "EN" ? EN : ES}" alt="lang-flag" id="en" class="size-[2.2rem] active:scale-110 transition-all duration-200 ease-linear">
-                </button>
-
+            <ul class="flex items-center justify-center w-full md:w-3/6 lg:w-2/6"> 
                 <li>
                     <a href="/">
                         <i class="fa-solid fa-house"></i>
@@ -33,7 +28,7 @@
                     </a>           
                 </li>
                 <li>
-                    <a href="/projects">
+                    <a href="/#projects">
                         <i class="fa-solid fa-diagram-project"></i>
                         <b>{lang === "EN" ? "Projects" : "Proyectos"}</b>
                     </a>

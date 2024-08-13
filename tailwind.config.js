@@ -3,10 +3,6 @@ export default {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
     extend: {},
-    fontFamily: {
-      'roboto': ['Roboto', 'sans-serif'],
-      'poppins' : ["Poppins", 'sans-serif']
-    }
   },
   plugins: []
 };

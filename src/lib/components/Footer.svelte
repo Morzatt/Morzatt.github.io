@@ -11,7 +11,7 @@
     }
 </script>
 
-<footer class="w-[100wh] absolute left-0 bottom-0 px-4 py-2 rounded-t-lg mt-8 bg-black text-white">
+<footer class="w-full px-4 py-2 rounded-t-lg mt-8 bg-black text-white">
     <div class="border">
         <a href="https://github.com/Morzatt">
             <!-- svelte-ignore a11y-no-static-element-interactions -->

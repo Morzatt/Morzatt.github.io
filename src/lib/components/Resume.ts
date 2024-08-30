@@ -85,7 +85,65 @@ const esSoftSkills: string[] = [
     "Eficiencia"
 ]
 
+import jsIcon from "$lib/images/Logos/js.png"
+import reactIcon from "$lib/images/Logos/react.png"
+import svelteIcon from "$lib/images/Logos/svelte.png"
+import postgreIcon from"$lib/images/Logos/postgre.png" 
+import dockerIcon from"$lib/images/Logos/docker.webp"
+import mysqlIcon from"$lib/images/Logos/mysql.png"
+import golangIcon from "$lib/images/Logos/go.png"
+import phpIcon from "$lib/images/Logos/php.png"
+import nodeIcon from "$lib/images/Logos/node.png"
+import gitIcon from "$lib/images/Logos/git.png"
+
+type Technologies = { icon: string, name: string }
+
+const techSkills: Technologies[] = [
+    {
+        icon: jsIcon,
+        name:"JavaScript"
+    }, 
+    {
+        icon: golangIcon,
+        name: "Golang"
+    },
+    {
+        icon: postgreIcon,
+        name: "PostgreSQL"
+    },
+    {
+        icon: dockerIcon,
+        name:"Docker"
+    }, 
+    {
+        icon: nodeIcon,
+        name: "NodeJS"
+    },
+    {
+        icon: phpIcon,
+        name: "PHP"
+    },
+    {
+        icon: reactIcon,
+        name: "React"
+    },
+    {
+        icon: svelteIcon,
+        name:"Svelte"
+    }, 
+    {
+        icon: mysqlIcon,
+        name: "MySQL"
+    },
+    {
+        icon: gitIcon, 
+        name: "Git"
+    }
+]
+
+
 export default {
     experiences: { enExperiences, esExperiences },
-    softSkills: { enSoftSkills, esSoftSkills }
+    softSkills: { enSoftSkills, esSoftSkills },
+    techSkills 
 }

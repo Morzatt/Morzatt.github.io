@@ -1,7 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Jacquard+12&family=Jacquarda+Bastarda+9&family=Jersey+10&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Teachers:ital,wght@0,400..800;1,400..800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.font-teacher {
+    font-family: "Teachers", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
 
+body {
+  @apply font-pixel;
+}
+
+.font-pixel {
+  font-family: "Pixelify Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+.font-jersey {
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -22,6 +44,7 @@
 body {
   overflow-x: hidden;
   background-color: rgb(246 246 246 / var(--tw-bg-opacity)); 
+  scroll-behavior: smooth
 }
 
 @layer components {

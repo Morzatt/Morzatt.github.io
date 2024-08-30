@@ -6,7 +6,7 @@
 <script lang="ts">
     import "../app.css"
     import Navbar from "$lib/components/Navbar.svelte"
-    // import Footer from "$lib/components/Footer.svelte"
+    import Footer from "$lib/components/Footer.svelte"
     import ES from "$lib/images/es.png"
     import EN from "$lib/images/en.png"
     import Lang from "$lib/stores/language.store"
@@ -29,17 +29,18 @@
             <img src="{lang === "EN" ? EN : ES}" alt="lang-flag" id="en" class="size-[2rem] md:size-[2.5rem] active:blur-sm active:scale-110 transition-all duration-200 ease-linear">
         </button>
     </span>
-
-<!-- <Footer/> -->
+    <!-- <Footer/> -->
 </body>
 
 <style lang="postcss">
+
      body {
+        @apply transition-all duration-300 ease-linear;
     --tw-bg-opacity: 1;
     --s: 50px; /* control the size*/
     --c1: #e6e6e6;
     --c2: rgb(246 246 246 / var(--tw-bg-opacity));;
-    
+        
     --_g: #0000 90deg,var(--c1) 0;
     background: 
         /* Smaller One */

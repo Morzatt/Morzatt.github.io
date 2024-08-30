@@ -3,8 +3,7 @@
     import arrowBack from "$lib/images/arrow_back_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg"
     import arrowFor from "$lib/images/arrow_forward_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg"
     import reload from "$lib/images/sync_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg"
-    import lock from "$lib/images/lock_24dp_FFFFFF.svg"
-    import gotoP from "$lib/images/move_item_24dp_FILL0_wght400_GRAD0_opsz24.svg"
+    import a from "$lib/images/a.mp4"
 
     // Regular Imports
     import {l} from "$lib/stores/language.store"
@@ -12,21 +11,42 @@
     import {onMount} from "svelte"
 
     let load = false;
-    onMount(() => {
+   
+    let descriptions: Record<string, { blur: boolean, state: boolean }> = {};
+    
+    onMount(() => { 
         setTimeout(() => {
             load = true
         }, 50);
     })
 
-    let showDescription = false;
+    for (let i of $l === "EN" ? p.enProjects : p.esProjects) {
+        descriptions[i.key] = { blur: false, state: false }
+    }
+
+    function showDescription(key: string) {
+        descriptions[key].blur = true
+        setTimeout(() => {
+            descriptions[key].blur = false 
+            descriptions[key].state = true
+        }, 100);
+    }
+
+    function hideDescription(key: string) {
+        descriptions[key].blur = true
+        setTimeout(() => {
+            descriptions[key].blur = false 
+            descriptions[key].state = false 
+        }, 100);
+    }
 </script>
 
 <div class="size-full" id="projects">
-    <h1 class="text-5xl font-bold my-8">{$l === "EN" ? "Projects" : "Proyectos"}</h1>
-    <div class="h-fit w-full min-h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <h1 class="text-7xl font-bold my-8 font-jersey">{$l === "EN" ? "Projects" : "Proyectos"}</h1>
+    <div class="h-fit w-full min-h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
         {#each $l === "EN" ? p.enProjects : p.esProjects as project}
             {#if project.type === "Web Application"}
-                <div class="h-[15rem] lg:h-[17rem] xl:h-[20rem] flex items-end justify-center">
+                <div class="h-[15rem] lg:h-[17rem] xl:h-[20rem] max-w-[400px] flex items-end justify-center">
                     <div class="bg-black border-2 border-black w-full h-[90%]">
                         <div class="translate-x-[-0.4rem] translate-y-[-0.4rem] size-full relative border-2 border-black bg-white">
                             <div class="top select-none"></div> 
@@ -39,41 +59,58 @@
                                     </span>
                                 </span>
                                 <span class="bg-gray-200 rounded-md px-2 w-3/6 h-full flex items-center overflow-hidden">
-                                    <img src="{lock}" alt="" class="size-5 filter invert md:mr-2">
+                                    <i class="fa-solid fa-lock md:mr-2"></i>
                                     <h3 class="text-sm font-bold">https://localhost</h3>
                                 </span>
                             </div>
 
-                            <!-- svelte-ignore a11y-no-static-element-interactions -->
                             <!-- svelte-ignore a11y-mouse-events-have-key-events -->
-                            <div class="w-full h-[83%] p-4" on:mouseover={() => {}} on:mouseout={() => {}}>
-                                <img src="{project.image}" alt="" class="size-full bb">
-                            </div>
+                            <a class="w-full h-[83%] p-1 cursor-pointer flex flex-col items-center justify-center 
+                                        {descriptions[project.key].blur ? "blur-md" : ""} transition-all duration-100 ease-linear" 
+                                href="/projects/{project.key}"
+                                on:mouseover={() => showDescription(project.key)} 
+                                on:mouseout={() => hideDescription(project.key)}>
 
-                            <button class="absolute right-4 bottom-4">
-                                <img src="{gotoP}" class="bb size-8" alt="">     
-                            </button> 
+                                <video src="{descriptions[project.key].state ? a : project.video}" class="overflow-hidden {descriptions[project.key].state ? "size-5/6" : "size-full"}" autoplay muted loop></video>
+                                <h1 class="font-jersey text-5xl font-bold {descriptions[project.key].state ? "" : "hidden"}">{$l === "EN" ? "See More" : "Ver más"}</h1>
+                            </a>
                         </div>
                     </div>
-                </div>               
+                </div>
             {:else if project.type === "Command Line"}
-                <div class="h-[15rem] lg:h-[17rem] xl:h-[20rem] flex items-end justify-center font-mono text-white" style="letter-spacing: 2px;">
-                    <div class="bg-black border-2 border-black w-full h-[90%] relative rounded-md">
-                        <div class="w-fit gap-2 h-[15%] bg-inherit flex items-center justify-start p-2 select-none">
+                <div class="h-[15rem] lg:h-[17rem] xl:h-[20rem] max-w-[400px] flex items-end justify-center font-mono text-white" style="letter-spacing: 2px;">
+                    <div class="{descriptions[project.key].state ? "bg-black" : "bg-[rgb(12,12,12)]"} w-full h-[90%] relative rounded-md">
+                        <div class="w-fit gap-2 h-[15%] bg-inherit flex items-center justify-start p-2 select-none rounded-md">
                             <b class="border-2 border-red-600 size-5 rounded-full bg-red-600"></b>
                             <b class="border-2 border-yellow-500 size-5 rounded-full bg-yellow-500"></b>
                             <b class="border-2 border-green-600 size-5 rounded-full bg-green-600"></b>
                         </div>
 
-                        <!-- svelte-ignore a11y-no-static-element-interactions -->
                         <!-- svelte-ignore a11y-mouse-events-have-key-events -->
-                        <div class="w-full h-[85%] p-4">
-                            <img src="{project.image}" alt="" class="size-full border">
-                        </div>
+                        <a class="w-full h-[85%] p-2 cursor-pointer flex flex-col items-center justify-center 
+                                    {descriptions[project.key].blur ? "blur-md" : ""} transition-all duration-100 ease-linear text-white" 
+                            href="/projects/{project.key}"
+                            on:mouseover={() => showDescription(project.key)} 
+                            on:mouseout={() => hideDescription(project.key)}>
 
-                        <button class="absolute right-4 bottom-4">
-                            <img src="{gotoP}" class="bb size-8 filter invert" alt="">     
-                        </button> 
+                            <video src="{descriptions[project.key].state ? a : project.video}" class="overflow-hidden {descriptions[project.key].state ? "filter invert size-5/6" : "size-full"}" autoplay muted loop></video>
+                            <h1 class="font-jersey text-5xl font-bold {descriptions[project.key].state ? "" : "hidden"}">{$l === "EN" ? "See More" : "Ver más"}</h1>
+                        </a>
+                    </div>
+                </div>
+            {:else if project.type === "Mobile"}
+                <div class="h-[15rem] lg:h-[17rem] xl:h-[20rem] max-w-[300px] flex items-end justify-center font-mono text-white" style="letter-spacing: 2px;">
+                    <div class="bg-black border-2 w-2/4 border-black h-[90%] relative rounded-xl flex items-center justify-center">
+                        <div class="absolute top-2 left-[50%] translate-x-[-50%] bg white w-1/4 h-1 bg-white"></div>
+                        <div class="w-[90%] h-[85%] bg-white rounded-md flex items-center justify-center">
+
+                            <!-- svelte-ignore a11y-no-static-element-interactions -->
+                            <!-- svelte-ignore a11y-mouse-events-have-key-events -->
+                            <div class="size-full p-4 cursor-pointer">
+                                <video src="{a}" class="size-full" autoplay muted loop></video>                               
+                            </div>
+                        </div>
+                        <div class="absolute bottom-1 left-[50%] translate-x-[-50%] bg white size-4 bg-white rounded-full"></div>
                     </div>
                 </div>
             {/if}
@@ -84,12 +121,14 @@
 <style lang="postcss">
     .top {
         @apply absolute top-[-8%] left-[-0.4%]
-        border-2 border-black border-r-[50px]
+        border-2 border-black border-r-[200px]
         bg-black
         w-2/4 h-[12%];
+        clip-path: polygon(0 1%, 85% 0, 100% 100%, 0% 100%);
     }
     .bot {
         @apply bg-black 
         w-[100.7%] h-[17%];
     }
+    
 </style>

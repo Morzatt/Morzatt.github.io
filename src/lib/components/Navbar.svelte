@@ -1,9 +1,7 @@
 <script lang="ts">
-    import ES from "$lib/images/es.png"
-    import EN from "$lib/images/en.png"
     import Lang from "$lib/stores/language.store"
     import type {Languages} from "$lib/stores/language.store"
-    import Shape from "./Shape/Shape.svelte";
+    import {setContactFormState} from "$lib/stores/form.store"
 
     let lang: Languages; 
 
@@ -37,7 +35,7 @@
                     <a class="border-2 size-full rounded-lg py-1
                         border-black bg-black text-white hover:text-black hover:bg-white
                         flex items-center justify-center gap-1 hover:shadow-lg"
-                        href="/#contact">
+                        href="/#contact" on:click={() => {setContactFormState().showContactForm()}}>
                         <i class="fa-regular fa-envelope"></i>
                         <b>{lang === "EN" ? "Contact" : "Contacto"}</b>
                     </a>

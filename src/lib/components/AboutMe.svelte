@@ -8,6 +8,7 @@
     import { onMount } from "svelte";
     import {l} from "$lib/stores/language.store"
     import ContactForm from "./ContactForm.svelte";
+    import {state, setContactFormState} from "$lib/stores/form.store"
 
     let load = false
     onMount(() => {
@@ -15,15 +16,6 @@
             load = true       
         }, 1);
     })
-    let contactForm = false
-    let slideElements = false
-    function showContactForm() {
-        slideElements = true;
-        setTimeout(() => {
-            slideElements = false
-            contactForm = true        
-        }, 250); 
-    }
 
     type Contacts = {
         name: string,
@@ -66,8 +58,8 @@
         </div>
     </div>
     <!-- RIGHT SIDE / BOTTOM SIDE --> 
-    <div class="flex flex-col md:justify-center md:items-start h-full w-full md:w-3/5 {slideElements ? "translate-x-[100%] blur-sm" : ""} transition-all duration-200 ease-out">
-        {#if !contactForm}
+    <div class="flex flex-col md:justify-center md:items-start h-full w-full md:w-3/5 {$state.slideElements ? "translate-x-[100%] blur-sm" : ""} transition-all duration-200 ease-out">
+        {#if !$state.contactForm}
             <!-- INTRODUCTION -->
             <div class="h-fit w-full md:h-3/5 p-2 md:border-b-2 border-black  {load ? "loaded" : "notload translate-y-[200%]"} transition-all duration-700 ease-linear">
                 <h1 class="text-3xl font-bold text-center md:text-left">{$l === "EN" ? "Introduction" : "Presentación"}</h1>
@@ -97,7 +89,7 @@
                                     <span class="w-1/4 h-full flex items-center justify-center">
                                         {#if contact.name === "Email"}
                                             <button class="size-fit bg-black rounded-full p-1 hover:bg-slate-700 active:bg-slate-600 transition-all duration-200 ease-linear"
-                                            on:click={showContactForm}>
+                                            on:click={setContactFormState().showContactForm}>
                                                 <img src="{sendIcon}" alt="" class="size-8">
                                             </button>
                                         {:else} 

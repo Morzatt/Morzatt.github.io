@@ -17,7 +17,7 @@ export const load = ({ params }) => {
     }
 
     if (!four0four) {
-        throw error(404, lan === "EN" ? "Page Not Found" : "Página no Encontrada")
+        throw error(404, { message: lan === "EN" ? "Page Not Found" : "Página no Encontrada" })
     }
 
     return {

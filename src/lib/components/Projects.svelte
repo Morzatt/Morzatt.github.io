@@ -60,7 +60,7 @@
                                 </span>
                                 <span class="bg-gray-200 rounded-md px-2 w-3/6 h-full flex items-center overflow-hidden">
                                     <i class="fa-solid fa-lock md:mr-2"></i>
-                                    <h3 class="text-sm font-bold">https://localhost</h3>
+                                    <h3 class="text-sm font-bold">https://mrzt.gh</h3>
                                 </span>
                             </div>
 
@@ -120,7 +120,7 @@
 
 <style lang="postcss">
     .top {
-        @apply absolute top-[-8%] left-[-0.4%]
+        @apply absolute top-[-8%] left-[-0.65%]
         border-2 border-black border-r-[200px]
         bg-black
         w-2/4 h-[12%];

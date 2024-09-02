@@ -19,9 +19,9 @@ const enExperiences: LabExperiences[] = [
         role: "Junior Developer",
         name: "CAEJPA",
         labours: [
-            "Develop Web UI/UX.",
-            "Build, Debug and Refactor REST API's.",
-            "Design and Migrate MySQL schemas.",
+            "Designed, developed and deployed a secure file sharing web application to a LAN network currently in use by over a hundred professionals.",
+            "Helped on the virtualization and ",
+            "Designed and created documentation to help business users understand the purpose and definition of every database column in the system.",
             "Configure and Maintain LAN Networks.",
         ]
     },
@@ -93,50 +93,66 @@ import dockerIcon from"$lib/images/Logos/docker.webp"
 import mysqlIcon from"$lib/images/Logos/mysql.png"
 import golangIcon from "$lib/images/Logos/go.png"
 import phpIcon from "$lib/images/Logos/php.png"
-import nodeIcon from "$lib/images/Logos/node.png"
 import gitIcon from "$lib/images/Logos/git.png"
+import laravelIcon from "$lib/images/Logos/laravel.png"
+import expressIcon from "$lib/images/Logos/express.png"
 
-type Technologies = { icon: string, name: string }
+type Technologies = {
+    icon: string,
+    name: string,
+    subTech?: {
+        icon: string,
+        name: string
+    }[],
+}
 
 const techSkills: Technologies[] = [
     {
         icon: jsIcon,
-        name:"JavaScript"
-    }, 
+        name: "JavaScript",
+        subTech: [
+            {
+                icon: reactIcon,
+                name: "React"
+            },
+            {
+                icon: svelteIcon,
+                name: "Svelte"
+            },
+            {
+                icon: expressIcon,
+                name: "ExpressJS"
+            }
+        ]
+    },
     {
         icon: golangIcon,
-        name: "Golang"
-    },
-    {
-        icon: postgreIcon,
-        name: "PostgreSQL"
-    },
-    {
-        icon: dockerIcon,
-        name:"Docker"
-    }, 
-    {
-        icon: nodeIcon,
-        name: "NodeJS"
+        name: "Golang",
     },
     {
         icon: phpIcon,
-        name: "PHP"
+        name: "PHP",
+        subTech: [
+            {
+                icon: laravelIcon,
+                name: "Laravel" 
+            }
+        ]
     },
     {
-        icon: reactIcon,
-        name: "React"
+        icon: postgreIcon,
+        name: "PostgreSQL",
     },
     {
-        icon: svelteIcon,
-        name:"Svelte"
-    }, 
+        icon: dockerIcon,
+        name: "Docker",
+    },
     {
         icon: mysqlIcon,
         name: "MySQL"
     },
     {
-        icon: gitIcon, 
+        icon: gitIcon,
         name: "Git"
     }
 ]
@@ -145,5 +161,5 @@ const techSkills: Technologies[] = [
 export default {
     experiences: { enExperiences, esExperiences },
     softSkills: { enSoftSkills, esSoftSkills },
-    techSkills 
+    techSkills
 }

@@ -14,7 +14,7 @@ export type Project = {
     video: string,
     videos?: string[]
 
-    tags?: string[],
+    tags: string[],
 
     links: { name: string, icon: string, link: string }[],
     features?: { title: string, description: string }[]
@@ -101,6 +101,7 @@ const esProjects: Project[] = [
         description: string,
         image: string,
         type: "Command Line",
+        tags: ["Etiqueta de prueba"],
         links: [{ name: "Github", icon: githubIcon, link: "https://github.com/Morzatt/caejpa" }],
         technologies: [
             { name: "SvelteKit", icon: svelteIcon }, 

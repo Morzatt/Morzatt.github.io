@@ -13,12 +13,26 @@
             return p.key === data.p
         })[0]
     }
+
+    let counter = 0
+
+    function nextPage() {
+        if (counter < 200) {
+            counter += 100
+        }
+    }
+
+    function prevPage() {
+        if (counter > 0) {
+            counter -= 100
+        }
+    }
 </script>
 
 <section transition:fly={{ duration: 200, y: 500, opacity: 0.5, easing: quintOut }}
 class="w-full h-[100vh] flex flex-col md:flex-row items-center justify-around p-4">
+    <!-- LEFT -->
     <div class="size-full lg:w-2/4 lg:h-full lg:p-4 lg:px-6 ">
-
         <div class="h-fit w-full relative rounded-md border-2 border-black bg-white shadow-[4px_7px]">
             <div class="w-full h-fit border-b-2 border-inherit">
                 <div class="w-fit gap-2 h-[fit] bg-inherit flex items-center justify-start p-1 select-none rounded-md">
@@ -33,7 +47,6 @@ class="w-full h-[100vh] flex flex-col md:flex-row items-center justify-around p-
                 <video src="{project.video}" class="overflow-hidden size-full rounded-md" autoplay muted loop></video>
             </div>
         </div>
-
 
         <div class="w-full h-fit mt-4">
             <div class="flex flex-col items-center justify-around">
@@ -71,28 +84,38 @@ class="w-full h-[100vh] flex flex-col md:flex-row items-center justify-around p-
         </div>
     </div>
 
-    <div class="size-full lg:w-2/4 lg:h-full ">
-        <h3 class="font-bold text-3xl text-left">{project.ldescription}</h3>
+    <!-- RIGHT -->
+    <div class="size-full lg:w-2/4 lg:h-full flex items-center justify-center ">
+        <div class="w-[10%]">
+            <button class="w-full px-4 py-2 text-6xl" on:click={prevPage}>{`<`}</button>
+        </div>
 
-        <div class="w-full h-fit flex flex-col items-center justify-start">
-            <h1 class="text-center font-jersey font-bold text-6xl">Stack</h1>
+        <div class="w-[80%] h-full p-2 relative overflow-hidden">
+            <div class="main-carousel {counter == 0 ? "left-0" : ""} left-[-{counter}%] duration-500" style="transition: all 500ms cubic-bezier(0.955, -0.340, 0.090, 1.385); /* custom */
 
-            <div class="w-full h-fit flex items-center justify-center">
-                {#each project.technologies as tech}
-                    <div class="bg-13 size-20 relative mx-1">
-                        <div class="w-[75%] h-[70%] absolute right-[3%] top-[8%]
-                        flex flex-col items-center justify-center">
-                            <img src="{tech.icon}" alt="" class="size-fit max-h-[80%] max-w-[80%]">
-                            <!-- <b class="w-full text-center mt-1">{tech.name}</b> -->
-                        </div>
-                    </div>
-                {/each}
+transition-timing-function: cubic-bezier(0.955, -0.340, 0.090, 1.385); /* custom */">
+                <div class="carousel-cell z-20">
+                    <h1 class="bg-white border-2 border-black p-4 text-4xl {counter !== 0 ? "blur-[3px]" : ""} transition-all duration-[580ms]
+                    shadow-[2px_4px] rounded-lg">{project.ldescription}</h1>
+                </div>
+                <div class="carousel-cell z-10">2 {counter}</div>
+                <div class="carousel-cell z-00">3 {counter}</div>
             </div>
+        </div>
+
+        <div class="w-[10%]">
+            <button class="w-full px-4 py-2 text-6xl" on:click={nextPage}>{`>`}</button>
         </div>
     </div>
 </section>
 
 <style lang="postcss">
+    .main-carousel {
+        @apply border-red-600 flex items-center justify-around gap-3 w-[300%] h-full absolute;
+    }
+    .carousel-cell {
+        @apply border-blue-600 size-full;
+    }
     .bg-13 {
         background-image: url("../../../lib/images/13.svg");
         background-position:center;

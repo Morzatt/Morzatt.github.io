@@ -23,10 +23,10 @@
 
 <div id="resume" class="w-full h-full flex flex-col lg:flex-row items-center lg:justify-around relative"> 
     <!-- EXPERIENCE -->
-    <div class="box {load ? "loaded" : "notload"} transition-all duration-200
-    grid grid-cols-1 gap-4 p-3 overflow-y-scroll">
+    <div class="box {load ? "loaded" : "notload"} transition-all duration-300 ease-in
+    grid grid-cols-1 gap-4 p-2 overflow-y-scroll">
         {#each $l == "EN" ? resumeInfo.experiences.enExperiences : resumeInfo.experiences.esExperiences as experience}
-            <div class="w-full h-fit border-2 border-black bg-gray-200 {experience.id === 1 ? "duration-[300ms]" : "duration-[350ms]"} {load ? "" : "translate-x-[-80%]"} transition-all ease-in">
+            <div class="w-full h-fit border-2 border-black bg-gray-200 {experience.id === 1 ? "duration-[350ms]" : "duration-[450ms]"} {load ? "" : "translate-x-[-80%]"} transition-all ease-in-out">
                 <div class="size-full border-2 border-inherit bg-white translate-x-[-0.40rem] translate-y-1 p-2 relative">
                     <span class="w-fit gap-2 px-3 my-2 flex justify-around items-center bg-blue-200 rounded-lg text-sm">
                         <b>{experience.date.from}</b> 
@@ -53,7 +53,7 @@
         {/each}
     </div>
     <!-- SKILLS -->
-    <div class="box {load ? "loaded" : "notload"} transition-all duration-300i overflow-y-scroll">
+    <div class="box {load ? "loaded" : "notload"} transition-all duration-500 ease-in overflow-y-scroll">
         <h1 class="text-3xl font-bold mb-4 text-center md:text-left">Technologies</h1>
         <div class="w-full grid grid-cols-2 gap-4 p-4">
             {#each resumeInfo.techSkills as skills, i}
@@ -74,15 +74,17 @@
                             border-2 border-black
                             bg-white shadow-[2px_5px]
                             p-2 
-                            {techs[skills.name] ? "scale-100": "scale-0 translate-x-[-100%]"}
+                            {techs[skills.name] ? "scale-100": "scale-0 translate-x-[-100%] blur-md"}
                             rounded-md 
                             absolute top-[20%] left-[50%] translate-x-[-50%]
                             z-10
-                            origin-top transition-all duration-200 ease-in-out">
+                            origin-top"
+                            style="transition: all 350ms cubic-bezier(0.945, -0.190, 0.040, 1.225); /* custom */
+                            transition-timing-function: cubic-bezier(0.945, -0.190, 0.040, 1.225); /* custom */">
 
                             <b class="text-lg w-full text-center font-semibold inline-block">Frameworks</b>
 
-                            <div class="size-max {skills.subTech.length < 2 ? "flex items-center justify-center w-full" : "grid grid-cols-2"} gap-4 mt-1">
+                            <div class="size-max flex flex-col items-center justify-center w-full gap-4 mt-1">
                                 {#each skills.subTech as sub}
                                     <div class="p-2 size-fit flex flex-col items-center justify-center text-lg">
                                         <img src="{sub.icon}" alt="" class="max-w-24 max-h-10">
@@ -105,7 +107,7 @@
 
                     <!-- Tech -->
                     <div class="page">
-                        <div class="page-inside p-2 translate-x-[-2px] translate-y-0.5 border-2 border-black relative">
+                        <div class="page-inside inside-1">
                             <div class="page-inside border-2 bg-inherit flex items-center justify-center flex-col p-1 border-slate-400">
                                 <img src="{skills.icon}" alt="" class="max-w-24 max-h-10">
                             </div> 
@@ -116,7 +118,7 @@
             {/each}
         </div>
     </div>
-    <div class="box {load ? "loaded" : "notload"} transition-all duration-500
+    <div class="box {load ? "loaded" : "notload"} transition-all ease-in duration-700
     grid grid-cols-2 grid-rows-6 p-4 overflow-y-scroll">
         {#each $l == "EN" ? resumeInfo.softSkills.enSoftSkills : resumeInfo.softSkills.esSoftSkills as skill}
             <div class="bg-message h-20  flex items-start justify-center relative">
@@ -146,20 +148,39 @@
 
     .box {
         @apply w-full lg:w-1/3 h-full;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
     }
 
     .box::-webkit-scrollbar {
         display: none;
+        scrollbar-width: none;
+        overflow: auto;
+        -ms-overflow-style: none;
     }
-    
+
     .page {
         @apply size-max p-[2px] bg-black; 
         clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%, 0 25%);
     }
 
     .page-inside {
-        @apply bg-white size-full;
+        @apply bg-white size-full relative;
         clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%, 0 25%);
+    }
+
+    .inside-1 {
+        @apply border-2 border-black 
+            translate-x-[-2px] translate-y-[2px]
+            relative p-2;
+    }
+    .inside-1::before {
+        @apply bg-black size-[32%] absolute top-[-9%] left-[-9%] z-10;
+        content: "";
+    }
+    .inside-1::after{
+        @apply bg-white size-[calc(32%-2px)] absolute top-[-9%] left-[-9%] z-20;
+        content: "";
     }
 
     .labor::before {

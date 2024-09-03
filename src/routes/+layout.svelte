@@ -24,11 +24,11 @@
         <slot></slot>
     </div>
 
-    <span class="bg-black fixed bottom-2 left-2 md:bottom-5 md:left-5 rounded-full hover:drop-shadow-2xl z-50">
+    <div class="size-max bg-black absolute bottom-2 left-2 md:bottom-5 md:left-5 rounded-full hover:drop-shadow-2xl z-50">
         <button on:click={() => Lang().switchLang()} class="translate-x-1 bg-white border-2 border-black p-2 rounded-full">
             <img src="{lang === "EN" ? EN : ES}" alt="lang-flag" id="en" class="size-[2rem] md:size-[2.5rem] active:blur-sm active:scale-110 transition-all duration-200 ease-linear">
         </button>
-    </span>
+    </div>
     <!-- <Footer/> -->
 </body>
 

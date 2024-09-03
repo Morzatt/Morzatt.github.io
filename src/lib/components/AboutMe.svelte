@@ -77,7 +77,7 @@
                             <div class="rounded-xl bg-white rounded-tr-none translate-x-2 border-2 border-black h-full p-2 flex items-center justify-around
                             {load ? "" : "translate-y-[-200%]"} {contact.name === "Email" ? "duration-700" : "duration-500"} transition-all ease-linear">
                                 <span class="w-1/4 h-full  flex items-center justify-center">
-                                    <img src="{contact.icon}" alt="" class="size-10 md:size-12">
+                                    <img src="{contact.icon}" alt="" class="size-10 md:size-12 drop-shadow-[2px_2px]">
                                 </span>
 
                                 <div class="flex items-center justify-around w-3/4 h-fit border-2 border-dashed border-black rounded-xl p-2 gap-1">
@@ -90,12 +90,12 @@
                                         {#if contact.name === "Email"}
                                             <button class="size-fit bg-black rounded-full p-1 hover:bg-slate-700 active:bg-slate-600 transition-all duration-200 ease-linear"
                                             on:click={setContactFormState().showContactForm}>
-                                                <img src="{sendIcon}" alt="" class="size-8">
+                                                <img src="{sendIcon}" alt="" class="size-8 drop-shadow-xl">
                                             </button>
                                         {:else} 
-                                            <a class="size-fit bg-black rounded-full p-1 hover:bg-slate-700 active:bg-slate-600 transition-all duration-200 ease-linear" 
+                                            <a class="size-fit bg-black rounded-full p-1 hover:bg-slate-700 active:bg-slate-600 transition-all duration-200 ease-linear " 
                                             href="{contact.link}" target="_blank">
-                                                <img src="{sendIcon}" alt="" class="size-8">
+                                                <img src="{sendIcon}" alt="" class="size-8 drop-shadow-xl">
                                             </a>
                                         {/if}
                                     </span>

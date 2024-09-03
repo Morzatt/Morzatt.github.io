@@ -51,5 +51,23 @@ body {
     .bb {
         @apply border border-black;
     }
+    .bg-clg {
+        --tw-bg-opacity: 1;
+        --s: 65px; /* control the size*/
+        --c1: #f1f1f1;
+        --c2: rgb(246 246 246 / var(--tw-bg-opacity));;
+            
+        --_g: #0000 90deg,var(--c1) 0;
+        background: 
+            /* Smaller One */
+            conic-gradient(from 90deg at 1px 1px,var(--_g)),
+            /* Bigger One */
+            conic-gradient(from 90deg at 1px 1px,var(--_g)),
+            var(--c2);
+        background-size: var(--s) var(--s), calc(var(--s)/5) calc(var(--s)/5);
+
+        @apply bg-white;
+    }
+
 }
 

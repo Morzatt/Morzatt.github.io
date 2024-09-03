@@ -40,7 +40,7 @@
 <main class="p-4 h-[100vh]">
     <section class="size-full title relative">
 
-        <div class="sq1 z-10">
+        <div class="sq1 z-10 bg-clg">
             <h1 class="font-pixel tracking-wide">Software=["Services"];</h1>
             <p>{$l === "EN" ? 
                 "< Development, Deployment and Maintenance of Full Stack Web Applications. />" : 
@@ -66,9 +66,9 @@
         </div>
 
         <div class="w-full h-2/3 md:w-[55%] md:h-[65%] xl:w-[35%] xl:h-[65%] absolute right-0 bottom-[-40%] md:bottom-[-50%] xl:bottom-14 z-10">
-            <div class="sq2 {load ? "bg-white" : "bg-white"}">
+            <div class="sq2 {load ? "bg-clg" : "bg-white"}">
                 {#if load}
-                    <!-- <div class="size-[99%] flex items-center justify-center overflow-hidden"><Shape/></div> -->
+                    <div class="size-[99%] flex items-center justify-center overflow-hidden"><Shape/></div>
                 {:else}
                     <img src="{timer}" alt="">
                 {/if}
@@ -78,7 +78,7 @@
         </div>
 
         <div class="w-full h-2/4 md:h-[40%] md:w-[55%] hidden md:flex md:absolute md:left-[-5%] xl:left-0 bottom-8 min-[900px]:bottom-20 z-10">
-            <div class="sq3 ">
+            <div class="sq3 bg-clg">
                 <p>{`< Long Term Service Deployment />`}</p>
             </div>
         </div>
@@ -128,7 +128,7 @@
         w-full lg:w-fit
         py-10 px-2 p-2
         border-[3px] border-gray-900 rounded-md
-        bg-white shadow-[-2px_7px]; 
+        shadow-[-2px_7px]; 
     }
 
     .title .sq1 h1 {
@@ -287,8 +287,10 @@
     }
 
     .title .sq2 {
-        @apply border-[3px] border-gray-900 size-full flex items-center justify-center 
-        rounded-[4rem] rounded-tr-none rounded-bl-none shadow-[-7px_7px] ;
+        @apply 
+        border-[3px] border-gray-900
+        rounded-[4rem] rounded-tr-none rounded-bl-none shadow-[-7px_7px]
+        size-full flex items-center justify-center;
     }
 
     .title .sq2 p {
@@ -301,7 +303,7 @@
     .title .sq3 {
         @apply border-[3px] border-gray-900 size-full 
         flex items-center justify-around
-        rounded-full shadow-[-7px_7px] bg-white relative;
+        rounded-full shadow-[-7px_7px] relative;
     }
 
     .title .sq3 p {

@@ -84,6 +84,9 @@ const esSoftSkills: string[] = [
     "Comunicación",
     "Eficiencia"
 ]
+import htmlIcon from "$lib/images/Logos/html.png"
+import cssIcon from "$lib/images/Logos/css.png"
+import tailwindLogo from "$lib/images/Logos/tailwind.png"
 
 import jsIcon from "$lib/images/Logos/js.png"
 import reactIcon from "$lib/images/Logos/react.png"
@@ -96,6 +99,8 @@ import phpIcon from "$lib/images/Logos/php.png"
 import gitIcon from "$lib/images/Logos/git.png"
 import laravelIcon from "$lib/images/Logos/laravel.png"
 import expressIcon from "$lib/images/Logos/express.png"
+import cIcon from "$lib/images/Logos/c.png"
+import rustIcon from "$lib/images/Logos/rust.png"
 
 type Technologies = {
     icon: string,
@@ -144,17 +149,39 @@ const techSkills: Technologies[] = [
         name: "PostgreSQL",
     },
     {
+        icon: gitIcon,
+        name: "Git"
+    },
+    {
         icon: dockerIcon,
         name: "Docker",
+    },
+    {
+        icon: cssIcon,
+        name: "CSS",
+        subTech: [
+            {
+                icon: tailwindLogo,
+                name: "TailwindCSS"
+            }
+        ]
+    },
+    {
+        icon: cIcon,
+        name: "C"
     },
     {
         icon: mysqlIcon,
         name: "MySQL"
     },
     {
-        icon: gitIcon,
-        name: "Git"
-    }
+        icon: htmlIcon,
+        name: "HTML"
+    },
+    // {
+    //     icon: rustIcon,
+    //     name: "Rust"
+    // }
 ]
 
 

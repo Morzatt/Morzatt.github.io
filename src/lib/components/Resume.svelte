@@ -54,7 +54,7 @@
     </div>
     <!-- SKILLS -->
     <div class="box {load ? "loaded" : "notload"} transition-all duration-500 ease-in overflow-y-scroll">
-        <h1 class="text-3xl font-bold mb-4 text-center md:text-left">Technologies</h1>
+        <h1 class="text-3xl font-bold mb-4 text-center md:text-left mt-8 md:mt-0">{$l === "EN" ? "Technologies" : "Tecnologías"}</h1>
         <div class="w-full grid grid-cols-2 gap-4 p-4">
             {#each resumeInfo.techSkills as skills, i}
                 <div class="min-w-fit border-2 border-dashed border-black p-2 flex items-center justify-center flex-col rounded-md
@@ -94,7 +94,7 @@
                             </div>
 
                             {#if skills.subTech?.length > 3}
-                                <div class="absolute right-1 bottom-1 text-black">
+                                <div class="w-full flex items-center justify-end text-black">
                                     <button class="size-fit flex items-center justify-center text-center max-h-4"
                                     on:click={() => {techs[skills.name] = !techs[skills.name]}}>
                                         <i class="fa-solid fa-square-caret-down transition-all duration-50 ease-in-out
@@ -119,7 +119,7 @@
         </div>
     </div>
     <div class="box {load ? "loaded" : "notload"} transition-all ease-in duration-700
-    grid grid-cols-2 grid-rows-6 p-4 overflow-y-scroll">
+    grid grid-cols-2 grid-rows-6 p-4 overflow-y-scroll mt-8 md:mt-0">
         {#each $l == "EN" ? resumeInfo.softSkills.enSoftSkills : resumeInfo.softSkills.esSoftSkills as skill}
             <div class="bg-message h-20  flex items-start justify-center relative">
                 <div class="w-[77%] h-[75%] absolute top-[7%] flex items-center justify-center">
@@ -135,7 +135,7 @@
         background-image: url("../images/14.svg");
         background-position:center;
         background-size:contain;
-        background-repeat: no-repeat
+        background-repeat: no-repeat;
     }
 
     .notload {

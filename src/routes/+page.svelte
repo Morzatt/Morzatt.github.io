@@ -38,7 +38,7 @@
 </script>
 
 <main class="p-4 h-[100vh]">
-    <section class="size-full title relative">
+    <section class="size-full title relative min-h-[50rem] md:min-h-[60rem] xl:min-h-[100vh]">
 
         <div class="sq1 z-10 bg-clg">
             <h1 class="font-pixel tracking-wide">Software=["Services"];</h1>
@@ -65,31 +65,30 @@
             <img src="{diamond}" alt="">
         </div>
 
-        <div class="w-full h-2/3 md:w-[55%] md:h-[65%] xl:w-[35%] xl:h-[65%] absolute right-0 bottom-[-40%] md:bottom-[-50%] xl:bottom-14 z-10">
+        <div class="w-full h-[20rem] md:size-[25rem] absolute right-0 top-[calc(30%+15rem)] md:top-[calc(30%+15rem)] xl:top-[30%] xl:right-8 z-10">
             <div class="sq2 {load ? "bg-clg" : "bg-white"}">
                 {#if load}
-                    <div class="size-[99%] flex items-center justify-center overflow-hidden"><Shape/></div>
+                    <!-- <div class="size-[99%] flex items-center justify-center overflow-hidden"><Shape/></div> -->
                 {:else}
                     <img src="{timer}" alt="">
                 {/if}
-
                 <p>{`< Efficient Software />`}</p>
             </div>
         </div>
 
-        <div class="w-full h-2/4 md:h-[40%] md:w-[55%] hidden md:flex md:absolute md:left-[-5%] xl:left-0 bottom-8 min-[900px]:bottom-20 z-10">
+        <div class="w-full h-1/4 max-h-[15rem] md:h-[40%] md:w-[55%] hidden md:flex md:absolute md:left-[-5%] xl:left-0 md:top-[calc(7.5%+15rem)] min-[900px]:bottom-20 z-10">
             <div class="sq3 bg-clg">
                 <p>{`< Long Term Service Deployment />`}</p>
             </div>
         </div>
     </section>
 
-    <div class="my-16 md:mt-[350px] xl:mt-20 hidden items-center md:flex pb-20 gap-4 text-xl">
+    <div class="my-16 mt-[100px] hidden items-center md:flex pb-20 gap-4 text-xl">
         <span class="w-64 block bg-black h-[1px]"></span>
         <h3>#Web Development</h3>
     </div>
 
-    <section class="w-full h-fit lg:h-full flex flex-col items-center justify-center mt-[300px] md:mt-0" id="contact">
+    <section class="w-full h-fit lg:h-full flex flex-col items-center justify-center mt-[7rem] md:mt-0" id="contact">
         <div class="w-full h-fit flex items-center justify-start">
             <div class="md:w-1/4 w-full py-1 flex items-center justify-around font-bold text-lg">
                 <button class="{content === "about" ? "border-b-2" : ""} border-black" 
@@ -155,10 +154,9 @@
     .ps-1 {
         @apply size-14 absolute
         z-0
-        top-[60%] right-[42%] 
-        min-[425px]:top-[50%]
-        md:top-[50%] md:right-[10.15%]
-        lg:right-[2%] lg:top-[10%]
+        top-[calc(10%+15rem)] right-[42%] 
+        md:top-[calc(10%+15rem)] md:right-[10.15%]
+        lg:right-[2%] lg:top-[5%]
         xl:right-[15%]
         flex items-center justify-center; 
     }
@@ -170,7 +168,7 @@
     .ps-1::before {
         @apply w-[2px] bg-gray-900
         left-[50%] 
-        top-[-245%] h-[250%]
+        top-[-345%] h-[350%]
         lg:h-[3px] lg:top-[50%] lg:left-[-800%] lg:w-[809%]
         absolute;
         content: ""
@@ -178,17 +176,17 @@
 
     .ps-1::after {
         @apply w-[2px]  bg-gray-900
-        h-[260%] bottom-[-255%] left-[50%] absolute
-        lg:h-[600%] lg:bottom-[-595%];
+        h-[460%] bottom-[-455%] left-[50%] absolute
+        lg:h-[900%] lg:bottom-[-895%];
         content: ""
     }
 
     .diamond-1 {
         @apply size-14 absolute
         z-0
-        top-[60%] left-[10%]
-        md:top-[70%] md:left-[60%]
-        min-[900px]:top-[58%]
+        top-[calc(17%+15rem)] left-[10%]
+        md:left-[70%]
+        /* min-[900px]:top-[58%] */
         xl:left-[57%] xl:top-[60%]
         flex items-center justify-center; 
     }
@@ -218,17 +216,9 @@
         @apply size-14 
         hidden absolute
         z-0
-        /* top-[50%] right-[10%]
-        md:top-[70%] md:right-60%]
-        min-[900px]:top-[58%]
-        lg:right-[57%] lg:top-[32.5%] */
-        top-[57%] right-[42%]
-        min-[425px]:top-[50%]
-        min-[500px]:right-[calc(42%-10.5rem)]
-        min-[640px]:right-[calc(42%-14rem)]
-        md:top-[42.5%] md:left-[45%]
-        min-[900px]:top-[31.5%]
-        lg:flex items-center justify-center; 
+        left-[20%] bottom-[21%]
+        xl:top-[calc(-7.7%+15rem)] xl:left-[calc(6.2%+25rem+3.5rem)]
+        md:flex items-center justify-center; 
     }
 
     .ps-2 img {
@@ -236,27 +226,30 @@
     }
 
     .ps-2::before {
-        @apply w-[265px] h-[2px] bg-gray-900
-        top-[46%] right-[-265px] absolute;
+        @apply  absolute bg-gray-900
+        h-[2px] top-[46%]  
+        w-[700%] right-[-696%]
+        min-[1100px]:w-[1100%] min-[1100px]:right-[-1096%]
+        xl:w-[25rem] xl:left-[-24.5rem];
         content: ""
     }
 
     .ps-2::after {
-        @apply w-[2px] h-[50px] bg-gray-900
-        left-[53%] bottom-[-46px] absolute
-        ;
+        @apply  absolute bg-gray-900
+        w-[2px] left-[53%]  
+        h-[700%] top-[-695%]
+        xl:h-[300%] xl:top-[-294%];
         content: ""
     }
 
     .diamond-2 {
         @apply size-14 absolute
         z-0
-        top-[60%] right-[calc(42%-7rem)]
-        min-[425px]:top-[50%]
+        top-[calc(10%+15rem)] right-[calc(42%-7rem)]
         min-[500px]:right-[calc(42%-10.5rem)]
         min-[640px]:right-[calc(42%-14rem)]
-        md:top-[42.5%] md:left-[7%]
-        min-[900px]:top-[32%]
+        md:top-[calc(-1%+15rem)] md:left-[7%]
+        xl:top-[calc(-8%+15rem)] xl:left-[7%]
         flex items-center justify-center; 
     }
 

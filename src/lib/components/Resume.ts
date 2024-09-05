@@ -89,6 +89,7 @@ import cssIcon from "$lib/images/Logos/css.png"
 import tailwindLogo from "$lib/images/Logos/tailwind.png"
 
 import jsIcon from "$lib/images/Logos/js.png"
+import tsIcon from "$lib/images/Logos/ts.png"
 import reactIcon from "$lib/images/Logos/react.png"
 import svelteIcon from "$lib/images/Logos/svelte.png"
 import postgreIcon from"$lib/images/Logos/postgre.png" 
@@ -127,7 +128,7 @@ const techSkills: Technologies[] = [
             {
                 icon: expressIcon,
                 name: "ExpressJS"
-            }
+            },
         ]
     },
     {
@@ -165,6 +166,10 @@ const techSkills: Technologies[] = [
                 name: "TailwindCSS"
             }
         ]
+    },
+    {
+        icon: tsIcon,
+        name: "TypeScript"
     },
     {
         icon: cIcon,

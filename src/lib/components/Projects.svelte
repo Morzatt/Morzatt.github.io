@@ -41,7 +41,7 @@
     }
 </script>
 
-<div class="size-full" id="projects">
+<div class="w-full min-h-screen" id="projects">
     <h1 class="text-7xl font-bold my-8 font-jersey">{$l === "EN" ? "Projects" : "Proyectos"}</h1>
     <div class="h-fit w-full min-h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
         {#each $l === "EN" ? p.enProjects : p.esProjects as project}

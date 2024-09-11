@@ -4,12 +4,15 @@
 </svelte:head>
 
 <script lang="ts">
+    import { onMount } from "svelte";
+
     import {l} from "$lib/stores/language.store"
+
     import Shape from "$lib/components/Shape/Shape.svelte";
     import AboutMe from "$lib/components/AboutMe.svelte"
     import Resume from "$lib/components/Resume.svelte"
-    import { onMount } from "svelte";
     import Projects from "$lib/components/Projects.svelte"
+
     import plus_sign from "$lib/images/circle1.svg"
     import diamond from "$lib/images/diamond2.svg"
     import timer from "$lib/images/timer.gif"
@@ -29,7 +32,7 @@
 
         setTimeout(() => {
             load = true
-        }, 3000)
+        }, 200)
 
         return () => {
             observer.unobserve(element);
@@ -37,10 +40,10 @@
     });
 </script>
 
-<main class="p-4 h-[100vh]">
-    <section class="size-full title relative min-h-[50rem] md:min-h-[60rem] xl:min-h-[100vh]">
+<main class="p-4 min-h-screen relative">
 
-        <div class="sq1 z-10 bg-clg">
+    <section class="size-full title relative min-h-[50rem] md:min-h-[60rem] xl:min-h-[100vh]">
+        <div class="sq1 z-10 bg-clg {load ? "":"translate-y-[1.7rem]"} transition-all duration-300 ease-in-out">
             <h1 class="font-pixel tracking-wide">Software=["Services"];</h1>
             <p>{$l === "EN" ? 
                 "< Development, Deployment and Maintenance of Full Stack Web Applications. />" : 
@@ -66,9 +69,9 @@
         </div>
 
         <div class="w-full h-[20rem] md:size-[25rem] absolute right-0 top-[calc(30%+15rem)] md:top-[calc(30%+15rem)] xl:top-[30%] xl:right-8 z-10">
-            <div class="sq2 {load ? "bg-clg" : "bg-white"}">
+            <div class="sq2 {load ? "bg-clg" : "bg-white translate-x-[2rem]"} transition-all duration-300 ease-in-out">
                 {#if load}
-                    <!-- <div class="size-[99%] flex items-center justify-center overflow-hidden"><Shape/></div> -->
+                    <div class="size-[99%] flex items-center justify-center overflow-hidden"><Shape/></div>
                 {:else}
                     <img src="{timer}" alt="">
                 {/if}
@@ -77,7 +80,8 @@
         </div>
 
         <div class="w-full h-1/4 max-h-[15rem] md:h-[40%] md:w-[55%] hidden md:flex md:absolute md:left-[-5%] xl:left-0 md:top-[calc(7.5%+15rem)] min-[900px]:bottom-20 z-10">
-            <div class="sq3 bg-clg">
+            <div class="sq3 bg-clg {load ? "":"translate-x-[-3rem]"} transition-all duration-300 ease-in-out">
+                <button class="bg-white border-2 border-black px-12 py-3 rounded-md">Know more</button>
                 <p>{`< Long Term Service Deployment />`}</p>
             </div>
         </div>
@@ -88,7 +92,7 @@
         <h3>#Web Development</h3>
     </div>
 
-    <section class="w-full h-fit lg:h-full flex flex-col items-center justify-center mt-[7rem] md:mt-0" id="contact">
+    <section class="w-full h-fit min-h-screen lg:h-screen flex flex-col items-center justify-center mt-[7rem] md:mt-0" id="contact">
         <div class="w-full h-fit flex items-center justify-start">
             <div class="md:w-1/4 w-full py-1 flex items-center justify-around font-bold text-lg">
                 <button class="{content === "about" ? "border-b-2" : ""} border-black" 
@@ -111,7 +115,7 @@
 
     <br>
 
-    <section class="w-full h-fit min-h-[100vh] mt-20">
+    <section class="w-full h-fit min-h-screen mt-20">
         <Projects/>
     </section>
 </main>

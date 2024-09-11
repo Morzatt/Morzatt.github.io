@@ -56,10 +56,9 @@ const enProjects: Project[] = [
             { name: "SvelteKit", icon: svelteIcon }, 
             { name: "TailwindCSS", icon: tailwindIcon },
             { name: "ExpressJS", icon: expressIcon },
-            { name: "MySQL", icon: mysqlIcon }
+            { name: "MySQL", icon: mysqlIcon },
         ],
     },
-
     {        
         key: "asisosso",
         title: "GOLANG",

@@ -2,6 +2,7 @@
     import { onMount } from "svelte";
     import {l} from "$lib/stores/language.store"
     import resumeInfo from "./Resume"
+    import messageImage from "$lib/images/14.svg"
     let load = false 
     let labors: Record<string | number, boolean> = {}
     let techs: Record<string | number, boolean> = {}
@@ -27,7 +28,7 @@
     grid grid-cols-1 gap-4 p-2 overflow-y-scroll">
         {#each $l == "EN" ? resumeInfo.experiences.enExperiences : resumeInfo.experiences.esExperiences as experience}
             <div class="w-full h-fit border-2 border-black bg-gray-200 {experience.id === 1 ? "duration-[350ms]" : "duration-[450ms]"} {load ? "" : "translate-x-[-80%]"} transition-all ease-in-out">
-                <div class="size-full border-2 border-inherit bg-white translate-x-[-0.40rem] translate-y-1 p-2 relative">
+                <div class="size-full border-2 border-inherit bg-white translate-x-[-0.40rem] translate-y-1 p-[0.60rem] relative">
                     <span class="w-fit gap-2 px-3 my-2 flex justify-around items-center bg-blue-200 rounded-lg text-sm">
                         <b>{experience.date.from}</b> 
                         <i>-</i>
@@ -118,10 +119,15 @@
             {/each}
         </div>
     </div>
+
+    <!-- Soft Skills -->
     <div class="box {load ? "loaded" : "notload"} transition-all ease-in duration-700
-    grid grid-cols-2 grid-rows-6 p-4 overflow-y-scroll mt-8 md:mt-0">
+     flex flex-wrap items-center mt-8 md:mt-0">
         {#each $l == "EN" ? resumeInfo.softSkills.enSoftSkills : resumeInfo.softSkills.esSoftSkills as skill}
-            <div class="bg-message h-20  flex items-start justify-center relative">
+            <div class="h-20 bb flex items-start justify-center relative grow shrink">
+
+                <img src="{messageImage}" alt="" class="w-[100%] h-full drop-shadow-[5px_5px]">
+
                 <div class="w-[77%] h-[75%] absolute top-[7%] flex items-center justify-center">
                     <h3 class="text-md text-gray-500 text-center"><i class="fa-solid fa-circle-nodes"></i> {skill}</h3>
                 </div>

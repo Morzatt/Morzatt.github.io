@@ -22,7 +22,7 @@
                 <li>
                     <a href="/">
                         <i class="fa-solid fa-house"></i>
-                        <b>{lang === "EN" ? "About" : "Acerca De"}</b>
+                        <b>{lang === "EN" ? "Home" : "Inicio"}</b>
                     </a>           
                 </li>
                 <li>

@@ -1,5 +1,7 @@
 <script lang="ts">
     import {renderShape} from "./Render";
+    import {onMount} from "svelte"
+
     let pause = false;
     const framerate = pause ? 0 : 16;
 
@@ -30,9 +32,30 @@
         z += shapeProperties.zIncrement;
     }, 1000/framerate)
 
+    let isVisible = false;
+    let element: HTMLDivElement;
+    let observer: IntersectionObserver;
+
+    $: {
+        if (isVisible) {
+            pause = false;
+        } else {
+            pause = true;
+        };
+    }
+
+    onMount(() => {
+        observer = new IntersectionObserver(([entry]) => {
+            isVisible = entry.isIntersecting;
+        });
+
+        observer.observe(element);
+    });
 </script>
 
-<main class="size-fit flex items-center justify-center flex-col select-none {pause ? "animate-pulse" : ""} hover:scale-110 transition-all duration-300 cursor-pointer drop-shadow-xl" on:click={() => pause = !pause}>
+<div class="size-fit flex items-center justify-center flex-col select-none {pause ? "animate-pulse" : ""} hover:scale-110 transition-all duration-300 cursor-pointer drop-shadow-xl" on:click={() => pause = !pause}
+    bind:this={element}>
+
     {#each screen as row}
         <div class="font-mono md:leading-3 md:tracking-[4px] whitespace-nowrap sm:leading-[8px] text-sm sm:tracking-widest leading-[6px]">
             {#each row as char}
@@ -44,4 +67,4 @@
             {/each}
         </div>
     {/each}
-</main>
+    </div>

@@ -54,14 +54,14 @@
     });
 
     // Event callbacks
-    function touchStart(index) {
-      return function (event) {
+    function touchStart(index: number) {
+      return function (event: any) {
         startPos = getPositionX(event);
         isDragging = true;
       };
     }
 
-    function touchMove(event) {
+    function touchMove(event: any) {
       if (isDragging) {
         const currentPosition = getPositionX(event);
         currentTranslate = prevTranslate + currentPosition - startPos;
@@ -79,7 +79,7 @@
 
 
     // Helper functions
-    function getPositionX(event) {
+    function getPositionX(event: any) {
       return event.type.includes('mouse')
         ? event.pageX
         : event.touches[0].clientX;
@@ -98,16 +98,17 @@
 </script>
 
 <section transition:fly={{ duration: 200, y: 500, opacity: 0.5, easing: quintOut }}
-class="w-full h-fit lg:h-[100vh] flex flex-col lg:flex-row items-center justify-around p-4 bb">
+class="w-full min-h-screen flex flex-col lg:flex-row items-center justify-around p-4">
+
     <!-- LEFT -->
-    <div class="w-full h-fit lg:w-2/4 lg:h-full lg:p-4 lg:px-6 bb">
+    <div class="w-full lg:w-2/4 lg:p-4 lg:px-6 ">
         <!-- PLAYER -->
         <div class="h-fit w-full relative rounded-md border-2 border-black bg-white shadow-[4px_7px]">
             <div class="w-full h-fit border-b-2 border-inherit">
                 <div class="w-fit gap-2 h-[fit] bg-inherit flex items-center justify-start p-1 select-none rounded-md">
-                    <b class="size-5 rounded-full bg-slate-900"></b>
-                    <b class="size-5 rounded-full bg-slate-600"></b>
-                    <b class="size-5 rounded-full bg-slate-400"></b>
+                    <b class="size-5 rounded-full bg-red-600"></b>
+                    <b class="size-5 rounded-full bg-yellow-500"></b>
+                    <b class="size-5 rounded-full bg-green-600"></b>
                 </div>
             </div>
             <!-- svelte-ignore a11y-mouse-events-have-key-events -->
@@ -134,16 +135,16 @@ class="w-full h-fit lg:h-[100vh] flex flex-col lg:flex-row items-center justify-
 
                 <div class="slider">
                     <div class="slider-inside">
-                        {#each project.tags as tech}
+                        {#each project.tags as tag}
                             <div class="bg-gray-300 mx-3 px-2 py-1 rounded-md text-center text-slate-700 inline-block">
-                                <i class="fa-solid fa-hashtag"></i> <b>{tech}</b>
+                                <i class="fa-solid fa-hashtag"></i> <b>{tag}</b>
                             </div>
                         {/each}
                     </div>
                     <div class="slider-inside">
-                        {#each project.tags as tech}
+                        {#each project.tags as tag}
                             <div class="bg-gray-300 mx-3 px-2 py-1 rounded-md text-center text-slate-700 inline-block">
-                                <i class="fa-solid fa-hashtag"></i> <b>{tech}</b>
+                                <i class="fa-solid fa-hashtag"></i> <b>{tag}</b>
                             </div>
                         {/each}
                     </div>
@@ -154,20 +155,38 @@ class="w-full h-fit lg:h-[100vh] flex flex-col lg:flex-row items-center justify-
         </div>
     </div>
 
-    <!-- RIGHT -->
-    <div class="w-full h-[100vh] lg:w-2/4 lg:h-full flex items-center justify-center border-2 border-red-600 mt-12 lg:mt-0">
-        <div class="w-[10%] hidden lg:block">
-            <button class="w-full px-4 py-2 text-6xl" on:click={prevPage}>{`<`}</button>
+    <!-- RIGHT / BOTTOM -->
+    <div class="w-full h-screen lg:w-2/4 flex items-center justify-center -2 border-red-600 mt-[7rem] lg:mt-0 relative">
+
+        <div class="absolute top-[-12%] lg:top-auto lg:bottom-0 left-[50%] translate-x-[-50%]
+        w-fit gap-4 h-[fit] bg-inherit flex items-center justify-start p-1 select-none rounded-md transition-all duration-300 ease-linear">
+            <b class="size-4 rounded-full {currentIndex === 0 ? "bg-gray-800" : "bg-gray-400"}"></b>
+            <b class="size-4 rounded-full {currentIndex === 1 ? "bg-gray-800" : "bg-gray-400"}"></b>
+            <b class="size-4 rounded-full {currentIndex === 2 ? "bg-gray-800" : "bg-gray-400"}"></b>
         </div>
 
-        <div class="w-full lg:w-[80%] h-full p-2 relative overflow-hidden bb select-none">
+        <div class="w-[4.5rem] absolute xl:relative left-0 top-[-17%]">
+            <button class="slider-button shadow-[-5px_5px]" on:click={prevPage}>{`<`}</button>
+        </div>
+
+        <div class="w-full lg:w-[80%] h-full p-2 relative overflow-hidden select-none">
             <!-- svelte-ignore a11y-no-static-element-interactions -->
             <div class="main-carousel duration-500" on:dragstart|preventDefault bind:this={slider}>
                 <div class="carousel-cell z-20" on:dragstart|preventDefault>
-                    <h1 class="bg-white border-2 border-black p-4 text-4xl transition-all duration-[580ms]
-                    shadow-[2px_4px] rounded-lg">{project.ldescription}</h1>
+                    <h1 class="border-2 border-black p-4 text-2xl transition-all duration-[580ms]
+                    shadow-[2px_4px] rounded-lg bg-clg">{project.ldescription}</h1>
+
+                    <div class="w-full h-fit flex items-center justify-around mt-4 flex-wrap gap-3">
+                        {#each project.technologies as tech}
+                            <div class="border-2 border-black h-20 w-fit flex items-center shrink grow justify-center flex-col px-2 py-4 shadow-[3px_5px]">
+                                <img src="{tech.icon}" alt="" class="max-w-[100%] max-h-[100%]">
+                                <h1>{tech.name}</h1>
+                            </div>
+                        {/each}
+                    </div>
                 </div>
-                <div class="carousel-cell z-10">                    <h1 class="bg-white border-2 border-black p-4 text-4xl transition-all duration-[580ms]
+                <div class="carousel-cell z-10">
+                    <h1 class="bg-white border-2 border-black p-4 text-4xl transition-all duration-[580ms]
                     shadow-[2px_4px] rounded-lg">{project.description}</h1></div>
                 <div class="carousel-cell z-00">
                     <h1 class="bg-white border-2 border-black p-4 text-4xl transition-all duration-[580ms]
@@ -176,27 +195,23 @@ class="w-full h-fit lg:h-[100vh] flex flex-col lg:flex-row items-center justify-
             </div>
         </div>
 
-        <div class="w-[10%] hidden lg:block">
-            <button class="w-full px-4 py-2 text-6xl" on:click={nextPage}>{`>`}</button>
+        <div class="w-[4.5rem] absolute xl:relative right-0 top-[-17%]">
+            <button class="slider-button shadow-[5px_5px]" on:click={nextPage}>{`>`}</button>
         </div>
     </div>
+
 </section>
 
 <style lang="postcss">
     .main-carousel {
-        @apply border-red-600 flex items-center justify-around gap-3 w-[300%] h-full absolute;
+        @apply border-red-600 flex items-center justify-around gap-3 w-[300%] h-full absolute cursor-grab;
         transition: all 500ms cubic-bezier(0.955, 0.340, 0.090, 1.385);
         transition-timing-function: cubic-bezier(0.955, 0.340, 0.090, 1.385); 
     }
     .carousel-cell {
-        @apply border-blue-600 size-full;
+        @apply border-blue-600 size-full p-1;
     }
-    .bg-13 {
-        background-image: url("../../../lib/images/13.svg");
-        background-position:center;
-        background-size: contain;
-        background-repeat: no-repeat;
-    }
+    
     .slider {
         @apply whitespace-nowrap flex items-center justify-around text-sm px-2 w-full overflow-hidden rounded-md;
     }
@@ -204,6 +219,20 @@ class="w-full h-fit lg:h-[100vh] flex flex-col lg:flex-row items-center justify-
     .slider-inside {
         display: inline-block;
         animation: 25s slide infinite linear;
+    }
+
+    .slider-button {
+        @apply w-full h-fit max-h-[10rem]
+        px-4 py-2
+        rounded-md
+        bg-black text-yellow-200 shadow-gray-700
+        text-6xl
+        flex items-center justify-center
+        transition-all duration-100 ease-in;
+    }
+
+    .slider-button:active {
+        @apply shadow-none shadow-gray-500 bg-gray-800;
     }
 
     @keyframes slide {

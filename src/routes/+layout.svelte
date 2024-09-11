@@ -16,38 +16,40 @@
     Lang().subscribe((l) => {
         lang = l
     })
+
 </script>
 
-<body class="w-full h-[100vh]">
-    <div class="w-full px-4 md:px-12 h-max">
+<body class="h-screen">
+    <div class="w-full h-fit px-4 md:px-12 relative pb-[55vh]">
         <Navbar/>
         <slot></slot>
-    </div>
 
-    <div class="size-max bg-black absolute bottom-2 left-2 md:bottom-5 md:left-5 rounded-full hover:drop-shadow-2xl z-50">
-        <button on:click={() => Lang().switchLang()} class="translate-x-1 bg-white border-2 border-black p-2 rounded-full">
-            <img src="{lang === "EN" ? EN : ES}" alt="lang-flag" id="en" class="size-[2rem] md:size-[2.5rem] active:blur-sm active:scale-110 transition-all duration-200 ease-linear">
-        </button>
+        <div class="size-max bg-black sticky bottom-2 left-[-3%] rounded-full hover:drop-shadow-2xl z-50">
+            <button on:click={() => Lang().switchLang()} class="translate-x-1 bg-white border-2 border-black p-2 rounded-full">
+                <img src="{lang === "EN" ? EN : ES}" alt="lang-flag" id="en" class="size-[2rem] md:size-[2.5rem] active:blur-sm active:scale-110 transition-all duration-200 ease-linear">
+            </button>
+        </div>
+
+        <Footer/>
     </div>
-    <!-- <Footer/> -->
 </body>
+
 
 <style lang="postcss">
 
      body {
-        @apply transition-all duration-300 ease-linear;
-    --tw-bg-opacity: 1;
-    --s: 50px; /* control the size*/
-    --c1: #e6e6e6;
-    --c2: rgb(246 246 246 / var(--tw-bg-opacity));;
-        
-    --_g: #0000 90deg,var(--c1) 0;
-    background: 
-        /* Smaller One */
-        conic-gradient(from 90deg at 1px 1px,var(--_g)),
-        /* Bigger One */
-        conic-gradient(from 90deg at 1px 1px,var(--_g)),
-        var(--c2);
-    background-size: var(--s) var(--s), calc(var(--s)/5) calc(var(--s)/5);
+        --tw-bg-opacity: 1;
+        --s: 50px; /* control the size*/
+        --c1: #e6e6e6;
+        --c2: rgb(246 246 246 / var(--tw-bg-opacity));;
+            
+        --_g: #0000 90deg,var(--c1) 0;
+        background: 
+            /* Smaller One */
+            conic-gradient(from 90deg at 1px 1px,var(--_g)),
+            /* Bigger One */
+            conic-gradient(from 90deg at 1px 1px,var(--_g)),
+            var(--c2);
+        background-size: var(--s) var(--s), calc(var(--s)/5) calc(var(--s)/5);
     } 
 </style>

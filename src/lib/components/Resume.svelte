@@ -185,7 +185,7 @@
         content: "";
     }
     .inside-1::after{
-        @apply bg-white size-[calc(32%-2px)] absolute top-[-9%] left-[-9%] z-20;
+        @apply bg-[#ffffffef] size-[calc(32%-2px)] absolute top-[-9%] left-[-9%] z-20;
         content: "";
     }
 

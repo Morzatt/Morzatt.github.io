@@ -9,6 +9,7 @@
     import {l} from "$lib/stores/language.store"
     import p from "./Projects"
     import {onMount} from "svelte"
+    import Projects from "./Projects";
 
     let load = false;
    
@@ -44,11 +45,11 @@
 <div class="w-full min-h-screen" id="projects">
     <h1 class="text-7xl font-bold my-8 font-jersey">{$l === "EN" ? "Projects" : "Proyectos"}</h1>
     <div class="h-fit w-full min-h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
-        {#each $l === "EN" ? p.enProjects : p.esProjects as project}
+        {#each $l === "EN" ? p.enProjects : p.esProjects as project, i}
             {#if project.type === "Web Application"}
-                <div class="h-[15rem] lg:h-[17rem] xl:h-[20rem] max-w-[400px] flex items-end justify-center">
+                <div class="h-[15rem] lg:h-[17rem] xl:h-[20rem] max-w-[400px] flex items-end justify-center {load ? "" : `translate-y-[-50%]`} transition-all ease-in-out duration-[{`${((i+1)*100)}ms`}]">
                     <div class="bg-black border-2 border-black w-full h-[90%]">
-                        <div class="translate-x-[-0.4rem] translate-y-[-0.4rem] size-full relative border-2 border-black bg-white">
+                        <div class="translate-x-[-0.4rem] translate-y-[-0.4rem] size-full relative border-2 border-black {project.bg ? `bg-[${project.bg}]` : "bg-white"}">
                             <div class="top select-none"></div> 
                             <div class="bot flex items-center justify-around p-2 select-none">
                                 <span class="w-3/5 flex items-center justify-start">
@@ -78,8 +79,8 @@
                     </div>
                 </div>
             {:else if project.type === "Command Line"}
-                <div class="h-[15rem] lg:h-[17rem] xl:h-[20rem] max-w-[400px] flex items-end justify-center font-mono text-white" style="letter-spacing: 2px;">
-                    <div class="{descriptions[project.key].state ? "bg-black" : "bg-[rgb(12,12,12)]"} w-full h-[90%] relative rounded-md">
+                <div class="h-[15rem] lg:h-[17rem] xl:h-[20rem] max-w-[400px] flex items-end justify-center font-mono text-white {load ? "" : `translate-y-[-50%]`} transition-all ease-in-out {`duration-[${(i+1)*100}ms]`}" style="letter-spacing: 2px;">
+                    <div class="{descriptions[project.key].state ? "bg-black" : (project.bg ? project.bg : "bg-black")} w-full h-[90%] relative rounded-md">
                         <div class="w-fit gap-2 h-[15%] bg-inherit flex items-center justify-start p-2 select-none rounded-md">
                             <b class="border-2 border-red-600 size-5 rounded-full bg-red-600"></b>
                             <b class="border-2 border-yellow-500 size-5 rounded-full bg-yellow-500"></b>

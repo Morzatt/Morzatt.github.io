@@ -8,6 +8,7 @@ export type Project = {
     title: string,
     description: string,
     ldescription?: string,
+    details?: string,
     
     image: string,
     images?: string[],
@@ -21,6 +22,9 @@ export type Project = {
     technologies: { name: string, icon: string, usage?: string }[]
 
     type: "Command Line" | "Web Application" | "Mobile",
+
+    // It needs to be the Tailwind class with the actual color code inside square brackets, in order to work; e.g: bg-[rgb(12,12,12)] OR bg-[#FFFFFF]
+    bg?: string,
 }
 
 let string: string = "";
@@ -35,8 +39,8 @@ const enProjects: Project[] = [
         key: "caejpa",
         title: "CAEJPA",
 
-        description: "Administration Web Application, built with TypeScript, SvelteKit, ExpressJS and MySQL.",
-        ldescription: "Simple and user-friendly web application designed to automate the workflow of the Public Savings Bank CAEJPA.",
+        description: "Financial management web application designed to automate the processes and transactions of a savings and loan associationbuilt with TypeScript, SvelteKit, ExpressJS and MySQL.",
+        ldescription: "Simple and user-friendly web application  Bank CAEJPA.",
 
         video: caejpavid,
         videos: [string],
@@ -49,9 +53,11 @@ const enProjects: Project[] = [
         links: [{ name: "Github", icon: githubIcon, link: "https://github.com/Morzatt/caejpa" }],
 
         features: [
-            { title: "Role Based Authentication", description: "" },
+            { title: "Role Based Authentication", description: "Based on session tokens, it provides three levels of users, with a smooth and clear distribution of roles and permissions across the application." },
+            { title: "Role Based Authentication", description: ", three levels of users, with a smooth and clear distribution of roles and permissions across the application." },
+            { title: "Role Based Authentication", description: ", three levels of users, with a smooth and clear distribution of roles and permissions across the application." },
+            { title: "Role Based Authentication", description: "Ba, provides three levels of users, with a smooth and clear distribution of roles and permissions across the application." },
         ],
-
         technologies: [
             { name: "SvelteKit", icon: svelteIcon }, 
             { name: "TailwindCSS", icon: tailwindIcon },
@@ -73,7 +79,8 @@ const enProjects: Project[] = [
             { name: "ExpressJS", icon: expressIcon },
             { name: "MySQL", icon: mysqlIcon }
         ],
-        video: cli
+        video: cli,
+        bg: "bg-[rgb(12,12,12)]"
     },
 ]
 

@@ -81,7 +81,7 @@
 
         <div class="w-full h-1/4 max-h-[15rem] md:h-[40%] md:w-[55%] hidden md:flex md:absolute md:left-[-5%] xl:left-0 md:top-[calc(7.5%+15rem)] min-[900px]:bottom-20 z-10">
             <div class="sq3 bg-clg {load ? "":"translate-x-[-3rem]"} transition-all duration-300 ease-in-out">
-                <button class="bg-white border-2 border-black px-12 py-3 rounded-md">Know more</button>
+                <button class=""></button>
                 <p>{`< Long Term Service Deployment />`}</p>
             </div>
         </div>
@@ -128,7 +128,7 @@
     .title .sq1 {
         @apply relative
         z-10
-        w-full lg:w-fit
+        w-full xl:min-w-[48rem] lg:w-fit
         py-10 px-2 p-2
         border-[3px] border-gray-900 rounded-md
         shadow-[-2px_7px]; 
@@ -138,14 +138,15 @@
         @apply text-5xl md:text-6xl
         text-center lg:text-left
         w-full
-        font-bold break-words;
-
-        /* animation: typing 2s steps(26); */
+        font-bold 
+        md:whitespace-nowrap
+        ease-in-out transition-all break-words md:overflow-hidden;
+        animation: typing 2s steps(28, end) forwards;
     }
     .title .sq1 h1::after {
         content: "";
         border: 10px solid black;
-        animation:cursor .4s step-end infinite alternate;
+        animation: cursor .4s step-end infinite alternate;
     }
     .title .sq1 p {
         @apply text-sm font-bold text-center 

@@ -2,6 +2,7 @@
     import Lang from "$lib/stores/language.store"
     import type {Languages} from "$lib/stores/language.store"
     import {setContactFormState} from "$lib/stores/form.store"
+    import pixel from "$lib/images/PixelArtIcons-30-512.webp"
 
     let lang: Languages; 
 
@@ -16,7 +17,7 @@
                    flex items-center justify-around md:justify-between
                    bg-white border-2 border-black rounded-lg">
 
-            <img src="" alt="logo" class="size-10 bb hidden md:block ml-2">
+            <img src="{pixel}" alt="logo" class="size-10 hidden md:block ml-2">
             
             <ul class="flex items-center justify-center w-full md:w-3/6 lg:w-2/6"> 
                 <li>

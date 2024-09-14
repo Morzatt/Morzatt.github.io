@@ -20,7 +20,7 @@
 </script>
 
 <body class="h-screen">
-    <div class="w-full h-fit px-4 md:px-12 relative pb-[55vh]">
+    <div class="w-full h-fit px-4 md:px-12 relative pb-[45vh]">
         <Navbar/>
         <slot></slot>
 

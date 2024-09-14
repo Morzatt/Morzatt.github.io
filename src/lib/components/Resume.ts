@@ -188,8 +188,6 @@ const techSkills: Technologies[] = [
     //     name: "Rust"
     // }
 ]
-
-
 export default {
     experiences: { enExperiences, esExperiences },
     softSkills: { enSoftSkills, esSoftSkills },

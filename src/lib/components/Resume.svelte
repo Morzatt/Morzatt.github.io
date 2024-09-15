@@ -121,18 +121,16 @@
     </div>
 
     <!-- Soft Skills -->
-    <div class="box {load ? "loaded" : "notload"} transition-all ease-in duration-700
-     flex flex-wrap items-center mt-8 md:mt-0">
-        {#each $l == "EN" ? resumeInfo.softSkills.enSoftSkills : resumeInfo.softSkills.esSoftSkills as skill}
-            <div class="h-20 bb flex items-start justify-center relative grow shrink">
+    <div class="box {load ? "loaded" : "notload"} transition-all ease-in duration-700">
+        <h1 class="text-3xl font-bold mb-4 text-center md:text-left mt-8 md:mt-0">{$l === "EN" ? "Soft Skills" : "Habilidades"}</h1>
 
-                <img src="{messageImage}" alt="" class="w-[100%] h-full drop-shadow-[5px_5px]">
-
-                <div class="w-[77%] h-[75%] absolute top-[7%] flex items-center justify-center">
-                    <h3 class="text-md text-gray-500 text-center"><i class="fa-solid fa-circle-nodes"></i> {skill}</h3>
+        <div class="size-fit flex flex-wrap gap-2 justify-center mt-8 md:mt-0">
+            {#each $l == "EN" ? resumeInfo.softSkills.enSoftSkills : resumeInfo.softSkills.esSoftSkills as skill}
+                <div class="size-fit min-h-[4rem] min-w-8 px-3 shadow-[4px_3px] flex items-center justify-center border-2 border-black text-center shrink">
+                    <p class="border-2 border-black border-dashed px-3 py-1"><i class="fa-solid {skill.icon} mr-3"></i>{skill.name}</p>
                 </div>
-            </div>
-        {/each}
+            {/each}
+        </div>
     </div>
 </div>
 

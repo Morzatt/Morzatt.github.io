@@ -69,21 +69,24 @@ const esExperiences: LabExperiences[] = [
     }
 ]
 
-const enSoftSkills: string[] = [
-    "Team Work",
-    "Time Management",
-    "Flexibility",
-    "Communication",
-    "Efficiency"
+type SoftSkill = { name: string, icon: string}
+
+const enSoftSkills: SoftSkill[] = [
+    { name: "Team Work" , icon: "fa-people-group"},
+    { name: "Time Management" , icon: "fa-business-time"}, 
+    { name: "Flexibility" , icon: "fa-shuffle"}, 
+    { name: "Communication" , icon: "fa-comments"}, 
+    { name: "Efficiency" , icon: "fa-hat-wizard"}, 
 ]
 
-const esSoftSkills: string[] = [
-    "Trabajo en Equipo",
-    "Administración del Tiempo",
-    "Flexibilidad",
-    "Comunicación",
-    "Eficiencia"
+const esSoftSkills: SoftSkill[] = [
+    { name: "Trabajo en Equipo" , icon: "fa-people-group"},
+    { name: "Administración del Tiempo" , icon: "fa-business-time"}, 
+    { name: "Flexibilidad" , icon: "fa-shuffle"}, 
+    { name: "Comunicación" , icon: "fa-comments"}, 
+    { name: "Eficiencia" , icon: "fa-hat-wizard"}, 
 ]
+
 import htmlIcon from "$lib/images/Logos/html.png"
 import cssIcon from "$lib/images/Logos/css.png"
 import tailwindLogo from "$lib/images/Logos/tailwind.png"

@@ -161,7 +161,7 @@ class="w-full min-h-screen flex flex-col lg:flex-row items-start justify-around 
                 </div>
             </div>
 
-            <h3 class="font-bold font-jersey text-4xl break-words mt-4 text-center w-full">{project.description}</h3>
+            <h3 class="font-semibold text-center text-xl break-words mt-4 w-full">{project.description}</h3>
         </div>
     </div>
 
@@ -185,23 +185,24 @@ class="w-full min-h-screen flex flex-col lg:flex-row items-start justify-around 
             <div class="main-carousel duration-500" on:dragstart|preventDefault bind:this={slider}>
                 <!-- CAROUSEL CELL #1 -->
                 <div class="carousel-cell no-scrollbar z-20" on:dragstart|preventDefault>
-                    <span class="w-full flex justify-center">
-                        <h1 class="text-2xl mb-4 px-6 after:px-4 w-fit bg-white border-2 border-black text-white relative
-                        after:content-['{$l === "EN" ? "Description" : "Descripción"}'] after:w-[95%] after:bg-black after:absolute after:left-[50%] after:translate-x-[-50%]  after:translate-y-[.3rem]
-                        ">{$l === "EN" ? "Description" : "Descripción"}</h1>
-                    </span>
+                    <div class="w-full flex items-center justify-center">
+                        <div class="main-title-out ">
+                            <h2 class="main-title-in bg-black">{$l === "EN" ? "Description" : "Descripción"}</h2>
+                        </div>
+                    </div>
+
 
                     <div class="border-2 border-black p-2 rounded-lg bg-clg">
                         <h1 class="text-[1.1rem]">{project.ldescription} Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium inventore tenetur fugit? Praesentium architecto error distinctio possimus a, incidunt perferendis ipsum, non animi earum atque! Impedit porro minima expedita quia dolorem. Dicta, enim ex! Tempora sed placeat, provident veritatis consectetur quam aspernatur doloribus facere dicta nihil quia reiciendis praesentium enim.</h1>
                     </div>
 
-                    <span class="w-full flex justify-center">
-                        <h1 class="mt-10 text-2xl px-6 after:px-4 w-fit bg-white border-2 border-black text-white relative
-                        after:content-['{$l === "EN" ? "Technologies" : "Tecnologías"}'] after:w-[95%] after:bg-black after:absolute after:left-[50%] after:translate-x-[-50%]  after:translate-y-[.3rem]
-                        ">{$l === "EN" ? "Description" : "Descripción"}</h1>
-                    </span>
+                    <div class="w-full flex items-center justify-center">
+                        <div class="main-title-out mt-8">
+                            <h2 class="main-title-in bg-black">{$l === "EN" ? "Technologies" : "Tecnogologías"}</h2>
+                        </div>
+                    </div>
 
-                    <div class="w-full h-fit flex items-center justify-around mt-4 flex-wrap gap-3">
+                    <div class="w-full h-fit flex items-center justify-around flex-wrap gap-3">
                         {#each project.technologies as tech}
                             <div class="border-2 border-black bg-clg h-20 w-fit flex items-center shrink grow justify-center flex-col px-2 py-4 shadow-[3px_5px]">
                                 <img src="{tech.icon}" alt="" class="max-w-[100%] max-h-[100%]">
@@ -213,13 +214,13 @@ class="w-full min-h-screen flex flex-col lg:flex-row items-start justify-around 
 
                 <!-- CAROUSEL CELL #2 -->
                 <div class="carousel-cell z-10">
-                    <!-- <h1 class="text-3xl mb-2">Features</h1> -->
-                    <span class="w-full flex justify-center">
-                        <h1 class="text-3xl mb-4 px-6 after:px-4 w-fit bg-white border-2 border-black text-white relative
-                        after:content-['Features'] after:w-[95%] after:bg-black after:absolute after:left-[50%] after:translate-x-[-50%]  after:translate-y-[.3rem]
-                        ">Features</h1>
-                    </span>
 
+                    <div class="w-full flex items-center justify-center">
+                        <div class="main-title-out ">
+                            <h2 class="main-title-in bg-black">{$l === "EN" ? "Features" : "Características"}</h2>
+                        </div>
+                    </div>
+                    
                     <div class="grid grid-cols-1 grid-rows-4 gap-6">
                         {#if project.features}
                             {#each project.features as feature}
@@ -307,5 +308,15 @@ class="w-full min-h-screen flex flex-col lg:flex-row items-start justify-around 
             transform: translateX(-100%);
         }
     }
-
+    .main-title-out {
+        @apply size-fit bg-white border-2 border-black text-white font-bold text-xl mb-4;
+    }
+    .main-title-in {
+        @apply size-full
+        px-8 p-1
+        border-2 border-black 
+        scale-[.96]
+        translate-y-[0.35rem]
+        transition-all duration-100 ease-in-out;
+    }
 </style>

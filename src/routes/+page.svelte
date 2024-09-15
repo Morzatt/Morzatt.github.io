@@ -81,7 +81,14 @@
 
         <div class="w-full h-1/4 max-h-[15rem] md:h-[40%] md:w-[55%] hidden md:flex md:absolute md:left-[-5%] xl:left-0 md:top-[calc(7.5%+15rem)] min-[900px]:bottom-20 z-10">
             <div class="sq3 bg-clg {load ? "":"translate-x-[-3rem]"} transition-all duration-300 ease-in-out">
-                <button class=""></button>
+
+                <div class="main-btn-out ">
+                    <button class="main-btn-in bg-black">Know More</button>
+                </div>
+                <div class="main-btn-out ">
+                    <button class="main-btn-in bg-white text-black">Know More</button>
+                </div>
+
                 <p>{`< Long Term Service Deployment />`}</p>
             </div>
         </div>
@@ -121,6 +128,7 @@
 </main>
 
 <style lang="postcss">
+
     .title {
         @apply  h-full w-full md:text-left text-center;
     }
@@ -300,7 +308,7 @@
 
     .title .sq3 {
         @apply border-[3px] border-gray-900 size-full 
-        flex items-center justify-around
+        flex items-center justify-center gap-12
         rounded-full shadow-[-7px_7px] relative;
     }
 
@@ -320,5 +328,18 @@
         from {
             width: 0;
         }
+    }
+    .main-btn-out {
+        @apply size-fit bg-white border-2 border-black text-white font-bold text-lg;
+    }
+    .main-btn-in {
+        @apply size-full
+        px-8 p-2
+        border-2 border-black 
+        translate-x-2 translate-y-[-0.3rem]
+        transition-all duration-100 ease-in-out;
+    }
+    .main-btn-in:active {
+        @apply translate-y-0 translate-x-0;
     }
 </style>

@@ -2,7 +2,7 @@
     import Lang from "$lib/stores/language.store"
     import type {Languages} from "$lib/stores/language.store"
     import {setContactFormState} from "$lib/stores/form.store"
-    import pixel from "$lib/images/PixelArtIcons-30-512.webp"
+    import logo from "$lib/images/logotg.svg"
 
     let lang: Languages; 
 
@@ -13,11 +13,14 @@
 
 <nav class="w-full py-2 h-max">
     <div class="size-full rounded-lg bg-black pb-1 pr-1">
-        <div class="size-full translate-y-[-3px] translate-x-[-2px] p-2
+        <div class="size-full translate-y-[-3px] translate-x-[-2px] p-2 lg:px-5
                    flex items-center justify-around md:justify-between
                    bg-white border-2 border-black rounded-lg">
 
-            <img src="{pixel}" alt="logo" class="size-10 hidden md:block ml-2">
+            <div class="flex items-center justify-center text-xl">
+                <img src="{logo}" alt="logo" class="size-10 scale-150 hidden md:block">
+                <p>CT</p>
+            </div>
             
             <ul class="flex items-center justify-center w-full md:w-3/6 lg:w-2/6"> 
                 <li>

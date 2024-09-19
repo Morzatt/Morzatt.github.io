@@ -1,6 +1,10 @@
 // Projects 
 import caejpavid from "$lib/images/projects/caejpavid.mp4"
 import cli from "$lib/images/projects/cli.mp4"
+import caejpa1 from "$lib/images/projects/caejpa1.png"
+import caejpa2 from "$lib/images/projects/caejpa2.png"
+import caejpa3 from "$lib/images/projects/caejpa3.png"
+
 
 
 export type Project = {
@@ -45,7 +49,7 @@ const enProjects: Project[] = [
         video: caejpavid,
         videos: [string],
         image: string,
-        images: [string],
+        images: [caejpa1, caejpa2, caejpa3],
 
         type: "Web Application",
         tags: ["Web Application", "Administration", "Role Based Authentication"],

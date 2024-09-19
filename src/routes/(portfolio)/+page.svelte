@@ -82,10 +82,10 @@
         <div class="w-full h-1/4 max-h-[15rem] md:h-[40%] md:w-[55%] hidden md:flex md:absolute md:left-[-5%] xl:left-0 md:top-[calc(7.5%+15rem)] min-[900px]:bottom-20 z-10">
             <div class="sq3 bg-clg {load ? "":"translate-x-[-3rem]"} transition-all duration-300 ease-in-out">
 
-                <div class="main-btn-out ">
+                <div class="main-btn-out">
                     <button class="main-btn-in bg-black">Know More</button>
                 </div>
-                <div class="main-btn-out ">
+                <div class="main-btn-out">
                     <button class="main-btn-in bg-white text-black">Know More</button>
                 </div>
 
@@ -99,9 +99,9 @@
         <h3>#Web Development</h3>
     </div>
 
-    <section class="w-full h-fit min-h-screen lg:h-screen flex flex-col items-center justify-center mt-[7rem] md:mt-0" id="contact">
-        <div class="w-full h-fit flex items-center justify-start">
-            <div class="md:w-1/4 w-full py-1 flex items-center justify-around font-bold text-lg">
+    <section class="w-full flex flex-col items-center justify-center mt-[7rem] md:mt-0" id="contact">
+        <div class="w-full flex items-center justify-start">
+            <div class="md:w-2/5 xl:w-1/4 w-full py-1 flex items-center justify-around font-bold text-lg">
                 <button class="{content === "about" ? "border-b-2" : ""} border-black" 
                 on:click={() => content = "about"}>{$l === "EN" ? "About Me" : "Sobre Mi"}</button>
 
@@ -109,6 +109,7 @@
                 on:click={() => content = "resume"}>{$l === "EN" ? "Resume" : "Resúmen"}</button>
             </div>
         </div>
+
         {#key isVisible}
             <div bind:this={element} class="lg:size-[90%] size-full my-2">
                 {#if content === "about"}
@@ -330,16 +331,34 @@
         }
     }
     .main-btn-out {
-        @apply size-fit bg-white border-2 border-black text-white font-bold text-lg;
+        @apply size-fit bg-white border-2 border-t-0 border-black text-white font-bold text-lg;
+    }
+    .main-btn-out:active {
+        @apply border-t-2;
     }
     .main-btn-in {
         @apply size-full
         px-8 p-2
         border-2 border-black 
-        translate-x-2 translate-y-[-0.3rem]
-        transition-all duration-100 ease-in-out;
+        translate-x-2 translate-y-[-0.5rem]
+        transition-all duration-100 ease-in-out z-10;
     }
     .main-btn-in:active {
-        @apply translate-y-0 translate-x-0;
+        @apply translate-y-0 translate-x-0 border-[1px];
+    }
+
+    .main-btn-in::after {
+        content: "";
+        @apply h-[2px] w-[.8rem] bg-black absolute top-[2px] left-[-.75rem] rotate-[-40deg] duration-[125ms] z-0;
+    }
+    .main-btn-in::after:active {
+        @apply scale-0;
+    }
+    .main-btn-in::before {
+        content: "";
+        @apply h-[2px] w-[.8rem] bg-black absolute bottom-[-.35rem] left-[-.75rem] rotate-[-40deg] duration-[125ms] z-0;
+    }
+    .main-btn-in::before:active {
+        @apply scale-0;
     }
 </style>

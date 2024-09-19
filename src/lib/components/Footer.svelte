@@ -1,6 +1,6 @@
 <script lang="ts">
     import {l} from "$lib/stores/language.store"
-    import pixel from "$lib/images/PixelArtIcons-30-512.webp"
+    import logo from "$lib/images/logotg.svg"
 
     function flip(evt: MouseEvent) {
         const target = evt.target as HTMLElement
@@ -15,29 +15,27 @@
     let nm = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
 </script>
 
-<footer class="w-full h-[40vh]
+<footer class="w-full h-[30vh]
     px-8 py-4 
     rounded-t-lg bg-black text-white 
     absolute left-0 bottom-0
     flex items-center justify-center
     overflow-hidden">
 
-    <div class="text-[#ffffff48] absolute left-2 top-[0.90rem] h-[95%] overflow-hidden">
-        {#each nm as n}
-            <p class="{n == 6 ? "scale-[1.15] text-[#ffffff80]" : ""}">{n}</p> 
-        {/each}
-    </div>
-
     <div class="w-full h-full relative">
         <!-- Top -->
-        <div class="h-3/4 border-b flex items-start justify-around">
-            <div class="w-1/4 ">
+        <p class="absolute right-2  bottom-[-5%]"><i class="fa-regular fa-copyright"></i> {new Date().getFullYear()} Carlos Tineo. {$l === "EN" ? "All Rights Reserved." : "Todos los Derechos Reservados."}</p>
+
+
+        <div class="size-full flex items-start justify-start">
+            <div class="w-1/4">
                 <span>
-                    <p class="text-[#ffffffd0]">Want to Work With Me?</p>
+                    <p class="text-[#ffffffd0] text-lg">Got a project to discuss?</p>
                     <h1 class="text-5xl font-semibold">Contact Me!</h1>
                 </span>
 
-                <ul class="flex items-center justify-start w-fit h-[3rem] mt-4"> 
+                <ul class="flex items-center justify-around w-fit h-[3rem] mt-6"> 
+                    <i class="fa-solid fa-arrow-turn-up rotate-90 text-7xl mx-12"></i>
                     <li>
                         <a href="/" style="border-left: none; border-right: none;">
                             <i class="fa-regular fa-envelope"></i>
@@ -53,61 +51,12 @@
                             <i class="fa-brands fa-github"></i>
                         </a>
                     </li>
+                    <img src="{logo}" alt="" class=" bg-white size-10 scale-[1.5] ml-4 hidden md:block filter invert">
                 </ul>
             </div>
-            <div class="w-3/4 flex items-start justify-end gap-4">
-                <span>
-                    <ul>
-                        <li>Home</li>
-                        <li>Categories</li>
-                        <li>About</li>
-                        <li>Click</li>
-                        <li>Me</li>
-                    </ul>
-                </span>
-                <span>
-                    <ul>
-                        <li>Reservation</li>
-                        <li>Homemdae</li>
-                        <li>Neglection</li>
-                    </ul>
-                </span>
-                <span>
-                    <ul>
-                        <li>Newsletter</li>
-                        <li>More</li>
-                        <li>About Projects</li>
-                        <li>Nenene</li>
-                    </ul>
-                </span>
-            </div>
-        </div>
-
-        <!-- Bottom -->
-        <div class="h-1/4 w-full flex items-center justify-between pt-3 relative">
-            <img src="{pixel}" alt="logo" class="size-20 filter invert hidden md:block mb-3">
-
-            <p class="absolute left-2/4 translate-x-[-50%] bottom-[-20%]"><i class="fa-regular fa-copyright"></i> {new Date().getFullYear()} Carlos Tineo. {$l === "EN" ? "All Rights Reserved." : "Todos los Derechos Reservados."}</p>
-
-            <ul class="flex items-center justify-end w-full h-full md:w-3/6 lg:w-2/6"> 
-                <li>
-                    <a href="/" style="border-left: none; border-right: none;">
-                        <i class="fa-brands fa-github"></i>
-                    </a>           
-                </li>
-                <li>
-                    <a href="/#projects">
-                        <i class="fa-brands fa-linkedin"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="/#contact" style="border-left: none; border-right: none;">
-                        <i class="fa-brands fa-github"></i>
-                    </a>
-                </li>
-            </ul>
         </div>
     </div>
+
 </footer>
 
 <style lang="postcss">

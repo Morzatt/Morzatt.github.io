@@ -44,7 +44,7 @@
 
 <div class="w-full min-h-screen" id="projects">
     <h1 class="text-7xl font-bold my-8 font-jersey">{$l === "EN" ? "Projects" : "Proyectos"}</h1>
-    <div class="h-fit w-full min-h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+    <div class="h-fit w-full min-h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {#each $l === "EN" ? p.enProjects : p.esProjects as project, i}
             {#if project.type === "Web Application"}
                 <div class="h-[15rem] lg:h-[17rem] xl:h-[20rem] max-w-[400px] flex items-end justify-center {load ? "" : `translate-y-[-50%]`} transition-all ease-in-out duration-[{`${((i+1)*100)}ms`}]">
@@ -60,8 +60,8 @@
                                     </span>
                                 </span>
                                 <span class="bg-gray-200 rounded-md px-2 w-3/6 h-full flex items-center overflow-hidden">
-                                    <i class="fa-solid fa-lock md:mr-2"></i>
-                                    <h3 class="text-sm font-bold">https://mrzt.gh</h3>
+                                    <i class="fa-solid fa-lock mr-2"></i>
+                                    <h3 class="text-sm font-bold truncate">https://mrzt.gh</h3>
                                 </span>
                             </div>
 

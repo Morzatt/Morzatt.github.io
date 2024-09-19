@@ -3,6 +3,8 @@
     import whatsappIcon from "$lib/images/whatsappIcon.webp"
     import emailIcon from "$lib/images/emailIcon.webp"
     import sendIcon from "$lib/images/sendIcon.svg"
+    import avatar from "$lib/images/avatar.svg"
+    import avatargif from "$lib/images/avatargif.gif"
 
     // Imports
     import { onMount } from "svelte";
@@ -48,12 +50,16 @@
 <div class="size-full flex flex-col items-center md:flex-row md:justify-around overflow-hidden">
     <!-- LEFT SIDE / TOP SIDE-->
     <div class="flex h-full w-full md:w-2/5 justify-center items-center md:items-start ">
-        <div class="size-full md:p-4 p-2 flex flex-col md:border-r-2 border-black {load ? "loaded" : "notload translate-y-[200%]"} transition-all duration-700 ease-linear">
-            <div class="size-full mt-4 p-4 md:py-20 lg:py-4 rounded-xl border-2 border-black  spacer slop2 text-white
-            {load ? "translate-x-0" : "translate-x-[200%]"}  transition-all duration-1000 ease-in-out">
+        <div class="size-full md:p-4 flex flex-col md:border-r-2 border-black {load ? "loaded" : "notload translate-y-[200%]"} transition-all duration-700 ease-linear">
+            <div class="size-full mt-4 p-4 rounded-xl border-2 border-black  spacer slop2 text-white
+            {load ? "translate-x-0" : "translate-x-[200%]"} transition-all duration-1000 ease-in-out overflow-hidden">
                 <p>{$l === "EN" ? "Hello!" : "¡Hey, hola!"}</p>
                 <br>
                 <p>{$l === "EN" ? `${introduction.en}` : `${introduction.es}`}</p>
+                <br>
+                <div class="w-full min-h-[15rem] relative">
+                    <img src="{avatargif}" alt="" class="size-[14rem] md:scale-x-[1.10] lg:scale-x-100 absolute right-[-5%] bottom-[-10%]">
+                </div>
             </div>
         </div>
     </div>
@@ -61,14 +67,14 @@
     <div class="flex flex-col md:justify-center md:items-start h-full w-full md:w-3/5 {$state.slideElements ? "translate-x-[100%] blur-sm" : ""} transition-all duration-200 ease-out">
         {#if !$state.contactForm}
             <!-- INTRODUCTION -->
-            <div class="h-fit w-full md:h-3/5 p-2 md:border-b-2 border-black  {load ? "loaded" : "notload translate-y-[200%]"} transition-all duration-700 ease-linear">
+            <div class="md:p-2 h-fit w-full md:h-3/5 lg:p-2 mt-8 md:mt-0 md:border-b-2 border-black  {load ? "loaded" : "notload translate-y-[200%]"} transition-all duration-700 ease-linear">
                 <h1 class="text-3xl font-bold text-center md:text-left">{$l === "EN" ? "Introduction" : "Presentación"}</h1>
-                <div class="w-full h-fit md:h-4/6 mt-4 rounded-xl rounded-tl-none border-2 border-black bg-white md:p-6 p-4 spacer slop">
+                <div class="w-full h-fit md:h-4/6 mt-4 rounded-xl rounded-tl-none border-2 border-black bg-white p-4 pb-[8rem] md:p-6 spacer slop min-h-[14rem]">
                     <p>{$l === "EN" ? `${introduction.en}` : `${introduction.es}`}</p>
                 </div>
             </div>
             <!-- GET IN TOUCH -->
-            <div class="w-full md:h-2/5 p-2 flex flex-col {load ? "loaded" : "notload translate-y-[-200%]"} transition-all duration-700 ease-linear ">
+            <div class="w-full md:h-2/5 md:p-2 mt-8 flex flex-col {load ? "loaded" : "notload translate-y-[-200%]"} transition-all duration-700 ease-linear ">
                 <h1 class="text-3xl font-bold text-center md:text-left">{$l === "EN" ? "Get In Touch" : "Póngase en Contacto"}</h1>
 
                 <div class="w-full md:w-fit lg:h-2/4 mt-3 grid  grid-cols-1 min-[620px]:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 px-4 md:px-0 gap-4">

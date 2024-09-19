@@ -4,7 +4,7 @@
 </svelte:head>
 
 <script lang="ts">
-    import "../app.css"
+    import "../../app.css"
     import Navbar from "$lib/components/Navbar.svelte"
     import Footer from "$lib/components/Footer.svelte"
     import ES from "$lib/images/es.png"
@@ -20,11 +20,11 @@
 </script>
 
 <body class="h-screen">
-    <div class="w-full h-fit px-4 md:px-12 relative pb-[45vh]">
+    <div class="w-full h-fit px-4 md:px-12 relative pb-[35vh]">
         <Navbar/>
         <slot></slot>
 
-        <div class="size-max bg-black sticky bottom-2 left-[-3%] rounded-full hover:drop-shadow-2xl z-50">
+        <div class="size-max bg-black sticky bottom-16 lg:bottom-4 left-[-3%] rounded-full hover:drop-shadow-2xl z-50">
             <button on:click={() => Lang().switchLang()} class="translate-x-1 bg-white border-2 border-black p-2 rounded-full">
                 <img src="{lang === "EN" ? EN : ES}" alt="lang-flag" id="en" class="size-[2rem] md:size-[2.5rem] active:blur-sm active:scale-110 transition-all duration-200 ease-linear">
             </button>

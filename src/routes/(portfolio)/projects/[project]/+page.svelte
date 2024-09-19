@@ -100,15 +100,10 @@
         slider.style.left = `-${currentIndex*100}%`;
         slider.style.transform = `translateX(0px)`;
     }
-    function ramNum(): number {
-        let x = Math.floor(Math.round(Math.random() * (2 - 1 + 1) + 1))
-        return x
-    }
 </script>
 
 <section transition:fly={{ duration: 200, y: 500, opacity: 0.5, easing: quintOut }}
-class="w-full min-h-screen flex flex-col lg:flex-row items-start justify-around p-4">
-
+class="relative w-full min-h-screen flex flex-col lg:flex-row items-start justify-around lg:p-4 ease-linear duration-200 transition-all">
     <!-- LEFT / TOP --> 
     <div class="w-full lg:w-2/4 lg:p-4 lg:px-6 min-h-[50rem]">
         <!-- PLAYER -->
@@ -179,7 +174,7 @@ class="w-full min-h-screen flex flex-col lg:flex-row items-start justify-around 
             <button class="slider-button translate-x-[-5px] translate-y-[5px] active:translate-x-0 active:translate-y-0" on:click={prevPage}>{`<`}</button>
         </div>
 
-        <div class="w-full lg:w-[90%] h-[50rem] p-1 relative overflow-hidden select-none ">
+        <div class="w-full lg:w-[90%] h-[65rem] md:h-[50rem] p-1 relative overflow-hidden select-none ">
             <!-- svelte-ignore a11y-no-static-element-interactions -->
             <!-- MAIN CAROUSEL -->
             <div class="main-carousel duration-500" on:dragstart|preventDefault bind:this={slider}>
@@ -241,8 +236,22 @@ class="w-full min-h-screen flex flex-col lg:flex-row items-start justify-around 
 
                 <!-- CAROUSEL CELL #3 -->
                 <div class="carousel-cell z-00">
-                    <h1 class="bg-white border-2 border-black p-4 text-4xl transition-all duration-[580ms]
-                    shadow-[2px_4px] rounded-lg">{project.ldescription}</h1>
+                    <div class="w-full flex items-center justify-center">
+                        <div class="main-title-out">
+                            <h2 class="main-title-in bg-black">{$l === "EN" ? "Gallery" : "Galería"}</h2>
+                        </div>
+                    </div>
+                    
+                    <div class="w-full max-h-full grid grid-cols-2 grid- gap-2">
+                        {#if project.images}
+                            {#each project.images as image, i}
+                                <a href="/projects/{project.key}/{i}">
+                                    <img src="{image}" alt="" class="border-2 border-black p-1 cursor-pointer bg-clg">
+                                </a>
+                            {/each}                       
+                        {/if}
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -292,8 +301,6 @@ class="w-full min-h-screen flex flex-col lg:flex-row items-start justify-around 
         flex items-center justify-center
         transition-all duration-100 ease-in z-20 relative;
     }
-
-    
 
     .slider-button:active {
         @apply bg-white text-black border-none border-black;

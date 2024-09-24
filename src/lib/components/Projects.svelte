@@ -72,7 +72,7 @@
                                 on:mouseover={() => showDescription(project.key)} 
                                 on:mouseout={() => hideDescription(project.key)}>
 
-                                <video src="{descriptions[project.key].state ? a : project.video}" class="overflow-hidden {descriptions[project.key].state ? "size-5/6" : "size-full"}" autoplay muted loop></video>
+                                <video src="{descriptions[project.key].state ? a : project.thumnail}" class="overflow-hidden {descriptions[project.key].state ? "size-5/6" : "size-full"}" autoplay muted loop></video>
                                 <h1 class="font-jersey text-5xl font-bold {descriptions[project.key].state ? "" : "hidden"}">{$l === "EN" ? "See More" : "Ver más"}</h1>
                             </a>
                         </div>

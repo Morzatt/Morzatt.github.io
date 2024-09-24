@@ -116,9 +116,11 @@ class="relative w-full min-h-screen flex flex-col lg:flex-row items-start justif
                 </div>
             </div>
             <!-- svelte-ignore a11y-mouse-events-have-key-events -->
-            <div class="w-full h-[fit] p-1 flex flex-col items-center justify-center 
+            <div class="w-full h-[13rem] min-[370px]:h-[15rem] min-[480px]:h-[17rem] min-[580px]:h-[19rem] min-[680px]:h-[22rem] md:h-[24rem] min-[860px]:h-[26rem] lg:h-[20rem] p-1 flex flex-col items-center justify-center 
                     transition-all duration-100 ease-linear text-white">
-                <video src="{project.video}" class="overflow-hidden size-full rounded-md" autoplay muted loop></video>
+                <!-- <video src="{project.video}" class="overflow-hidden size-full rounded-md" autoplay muted loop></video> -->
+
+                <iframe src="{project.video}" width="100%" height="100%" allow="autoplay" title="project-video" class="rounded-md"></iframe>
             </div>
         </div>
         <!-- PLAYER -->

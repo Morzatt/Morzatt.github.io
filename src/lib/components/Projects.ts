@@ -14,10 +14,9 @@ export type Project = {
     ldescription?: string,
     details?: string,
     
-    image: string,
+    thumnail: string,
     images?: string[],
     video: string,
-    videos?: string[]
 
     tags: string[],
 
@@ -46,9 +45,8 @@ const enProjects: Project[] = [
         description: "Financial management web application designed to automate the processes and transactions of a savings and loan associationbuilt with TypeScript, SvelteKit, ExpressJS and MySQL.",
         ldescription: "Simple and user-friendly web application  Bank CAEJPA.",
 
-        video: caejpavid,
-        videos: [string],
-        image: string,
+        video: "https://drive.google.com/file/d/1MoIe6hkTGsGpH36OdVl-AJsTBlfjSyQV/preview",
+        thumnail: caejpavid,
         images: [caejpa1, caejpa2, caejpa3],
 
         type: "Web Application",
@@ -73,7 +71,7 @@ const enProjects: Project[] = [
         key: "asisosso",
         title: "GOLANG",
         description: string,
-        image: string,
+        thumnail: cli,
         type: "Command Line",
         links: [{ name: "Github", icon: githubIcon, link: "https://github.com/Morzatt/caejpa" }],
         tags: ["Web Application", "Administration", "Role Based Authentication"],
@@ -93,9 +91,9 @@ const esProjects: Project[] = [
         key: "caejpa",
         title: "CAEJPA",
         description: string,
-        image: string,
         type: "Web Application",
         tags: ["Etiqueta de prueba"],
+        thumnail: caejpavid,
         links: [{ name: "Github", icon: githubIcon, link: "https://github.com/Morzatt/caejpa" }],
         technologies: [
             { name: "SvelteKit", icon: svelteIcon }, 
@@ -109,8 +107,8 @@ const esProjects: Project[] = [
         key: "asisosso",
         title: "GOLANG",
         description: string,
-        image: string,
         type: "Command Line",
+        thumnail: cli,
         tags: ["Etiqueta de prueba"],
         links: [{ name: "Github", icon: githubIcon, link: "https://github.com/Morzatt/caejpa" }],
         technologies: [

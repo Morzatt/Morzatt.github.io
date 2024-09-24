@@ -19,7 +19,7 @@
 
             <div class="flex items-center justify-center text-xl">
                 <img src="{logo}" alt="logo" class="size-10 scale-150 hidden md:block">
-                <p>CT</p>
+                <p class="font-baloo font text-white font-extrabold drop-shadow-[2px_2px] shadow-blue-700 hidden lg:block">CDev</p>
             </div>
             
             <ul class="flex items-center justify-center w-full md:w-3/6 lg:w-2/6"> 
@@ -50,6 +50,13 @@
 </nav>
 
 <style lang="postcss">
+    @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&display=swap');
+
+    .font-baloo {
+        font-family: "Baloo 2", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal; 
+    }
     li{
         @apply w-1/3 flex items-center justify-center font-semibold
         md:px-2; 

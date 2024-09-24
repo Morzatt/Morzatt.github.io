@@ -37,7 +37,9 @@
   let isDragging = false,
     startPos = 0,
     currentTranslate = 0,
-    prevTranslate = 0;
+    prevTranslate = 0,
+    yAxis = 0,
+    xAxis = 0;
 
   onMount(() => {
     setTimeout(() => {
@@ -62,6 +64,7 @@
     function touchStart(index: number) {
       return function (event: any) {
         startPos = getPositionX(event);
+        yAxis = getPositionY(event); 
         isDragging = true;
       };
     }
@@ -70,7 +73,13 @@
       if (isDragging) {
         const currentPosition = getPositionX(event);
         currentTranslate = prevTranslate + currentPosition - startPos;
-        setSliderPosition();
+
+        xAxis = currentPosition
+        yAxis = getPositionY(event)
+
+        if (xAxis > yAxis) { 
+            setSliderPosition();            
+        }
       }
     }
 
@@ -87,13 +96,20 @@
     function getPositionX(event: any) {
       return event.type.includes('mouse')
         ? event.pageX
-        : event.touches[0].clientX;
+        : event.touches[0].pageX;
+    }
+
+    function getPositionY(event: any) {
+      return event.type.includes('mouse')
+        ? event.pageY
+        : event.touches[0].pageY;
     }
 
     function setSliderPosition() {
       slider.style.transform = `translateX(-${-currentTranslate}px)`;
     }
   });
+
     function setPositionByIndex() {
         currentTranslate = currentIndex * -100;
         prevTranslate = currentTranslate;

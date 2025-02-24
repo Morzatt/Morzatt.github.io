@@ -151,7 +151,7 @@
     .loaded {
         @apply blur-none relative ease-in-out opacity-100;
     }
-    .no-scrollbar {
+    /* .no-scrollbar {
         scrollbar-width: none;
         -ms-overflow-style: none;
     }
@@ -160,19 +160,20 @@
         scrollbar-width: none;
          overflow: auto; 
         -ms-overflow-style: none;
-    }
+    } */
     .box {
         @apply w-full lg:w-1/3 h-full;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
+        scrollbar-width: thin;
+        scrollbar-color: rgb(207, 207, 207) rgba(255, 255, 255, 0);
+        /* -ms-overflow-style: none; */
     }
-
-    .box::-webkit-scrollbar {
+    
+    /* .box::-webkit-scrollbar {
         display: none;
         scrollbar-width: none;
          overflow: auto; 
         -ms-overflow-style: none;
-    }
+    } */
 
     .page {
         @apply size-max p-[2px] bg-black; 

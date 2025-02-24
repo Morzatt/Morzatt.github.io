@@ -1,7 +1,7 @@
 <script lang="ts">
     import Lang from "$lib/stores/language.store"
     import type {Languages} from "$lib/stores/language.store"
-    import {setContactFormState} from "$lib/stores/form.store"
+    import {setContactFormState, contentStore} from "$lib/stores/form.store"
     import logo from "$lib/images/logotg.svg"
 
     let lang: Languages; 
@@ -39,7 +39,7 @@
                     <a class="border-2 size-full rounded-lg py-1
                         border-black bg-black text-white hover:text-black hover:bg-white
                         flex items-center justify-center gap-1 hover:shadow-lg"
-                        href="/#contact" on:click={() => {setContactFormState().showContactForm()}}>
+                        href="/#contact" on:click={() => { contentStore.set("about") ;setContactFormState().showContactForm() }}>
                         <i class="fa-regular fa-envelope"></i>
                         <b>{lang === "EN" ? "Contact" : "Contacto"}</b>
                     </a>

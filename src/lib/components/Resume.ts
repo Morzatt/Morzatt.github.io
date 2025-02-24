@@ -105,6 +105,7 @@ import laravelIcon from "$lib/images/Logos/laravel.png"
 import expressIcon from "$lib/images/Logos/express.png"
 import cIcon from "$lib/images/Logos/c.png"
 import rustIcon from "$lib/images/Logos/rust.png"
+import kubernetesIcon from "$lib/images/Logos/kubernetes.png"
 
 type Technologies = {
     icon: string,
@@ -175,8 +176,12 @@ const techSkills: Technologies[] = [
         name: "TypeScript"
     },
     {
+        icon: kubernetesIcon,
+        name: "Kubernetes"
+    },
+    {
         icon: cIcon,
-        name: "C"
+        name: "C Language"
     },
     {
         icon: mysqlIcon,

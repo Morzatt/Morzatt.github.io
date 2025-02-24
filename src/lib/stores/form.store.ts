@@ -42,3 +42,5 @@ export function setContactFormState() {
         showContactForm,
     }
 }
+
+export let contentStore = writable<"about" | "resume">("about")

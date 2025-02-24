@@ -1,6 +1,5 @@
-<!-- svelte-ignore tag-option-deprecated -->
 <svelte:head>
-    <title>Portfolio</title>
+    <title>TineoDev</title>
 </svelte:head>
 
 <script lang="ts">

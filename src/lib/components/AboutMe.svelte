@@ -52,11 +52,15 @@
     <div class="flex h-full w-full md:w-2/5 justify-center items-center md:items-start ">
         <div class="size-full md:p-4 flex flex-col md:border-r-2 border-black {load ? "loaded" : "notload translate-y-[200%]"} transition-all duration-700 ease-linear">
             <div class="size-full mt-4 p-4 rounded-xl border-2 border-black  spacer slop2 text-white
-            {load ? "translate-x-0" : "translate-x-[200%]"} transition-all duration-1000 ease-in-out overflow-hidden">
-                <p>{$l === "EN" ? "Hello!" : "¡Hey, hola!"}</p>
-                <br>
-                <p>{$l === "EN" ? `${introduction.en}` : `${introduction.es}`}</p>
-                <br>
+            {load ? "translate-x-0" : "translate-x-[200%]"} transition-all duration-1000 ease-in-out overflow-hidden
+            flex flex-col items-start justify-between">
+                <div>
+                    <p>{$l === "EN" ? "Hello!" : "¡Hey, hola!"}</p>
+                    <br>
+                    <p>{$l === "EN" ? `${introduction.en}` : `${introduction.es}`}</p>
+                    <br>
+                </div>
+
                 <div class="w-full min-h-[15rem] relative">
                     <img src="{avatargif}" alt="" class="size-[14rem] md:scale-x-[1.10] lg:scale-x-100 absolute right-[-5%] bottom-[-10%]">
                 </div>

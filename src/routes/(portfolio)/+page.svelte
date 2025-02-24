@@ -1,12 +1,12 @@
-<!-- svelte-ignore tag-option-deprecated -->
 <svelte:head>
-    <title>Portfolio</title>
+    <title>TineoDev</title>
 </svelte:head>
 
 <script lang="ts">
     import { onMount } from "svelte";
 
     import {l} from "$lib/stores/language.store"
+    import {contentStore} from "$lib/stores/form.store"
 
     import Shape from "$lib/components/Shape/Shape.svelte";
     import AboutMe from "$lib/components/AboutMe.svelte"
@@ -17,8 +17,8 @@
     import diamond from "$lib/images/diamond2.svg"
     import timer from "$lib/images/timer.gif"
 
-    type Content = "resume" | "about";
-    let content: Content = "about";
+    let content: "resume" | "about";
+    contentStore.subscribe(cont => { content = cont })
 
     let isVisible = false;
     let element: HTMLDivElement;
@@ -44,7 +44,7 @@
 
     <section class="size-full title relative min-h-[50rem] md:min-h-[60rem] xl:min-h-[100vh]">
         <div class="sq1 z-10 bg-clg {load ? "":"translate-y-[1.7rem]"} transition-all duration-300 ease-in-out">
-            <h1 class="font-pixel tracking-wide">Software=["Services"];</h1>
+            <h1 class="font-pixel tracking-wide">Software (Services)</h1>
             <p>{$l === "EN" ? 
                 "< Development, Deployment and Maintenance of Full Stack Web Applications. />" : 
                 "< Desarrollo, Despligue y Mantenimiento de Aplicaciones Web Full Stack. />"}
@@ -103,15 +103,15 @@
         <div class="w-full flex items-center justify-start">
             <div class="md:w-2/5 xl:w-1/4 w-full py-1 flex items-center justify-around font-bold text-lg">
                 <button class="{content === "about" ? "border-b-2" : ""} border-black" 
-                on:click={() => content = "about"}>{$l === "EN" ? "About Me" : "Sobre Mi"}</button>
+                on:click={() => contentStore.set("about")}>{$l === "EN" ? "About Me" : "Sobre Mi"}</button>
 
                 <button class="{content === "resume" ? "border-b-2" : ""} border-black" 
-                on:click={() => content = "resume"}>{$l === "EN" ? "Resume" : "Resúmen"}</button>
+                on:click={() => contentStore.set("resume")}>{$l === "EN" ? "Resume" : "Resúmen"}</button>
             </div>
         </div>
 
         {#key isVisible}
-            <div bind:this={element} class="lg:size-[90%] size-full my-2">
+            <div bind:this={element} class="size-full lg:w-[90%] lg:h-[90vh] my-2">
                 {#if content === "about"}
                     <AboutMe/>               
                 {:else if content === "resume"}
@@ -145,18 +145,19 @@
 
     .title .sq1 h1 {
         @apply text-5xl md:text-6xl
-        text-center lg:text-left
         w-full
         font-bold 
         md:whitespace-nowrap
-        ease-in-out transition-all break-words md:overflow-hidden;
-        animation: typing 2s steps(28, end) forwards;
+        ease-in-out transition-all break-words md:overflow-hidden
+        flex items-center justify-center md:justify-start;
+
+        /* animation: typing 2s steps(28, end) forwards; */
     }
-    .title .sq1 h1::after {
+    /* .title .sq1 h1::after {
         content: "";
         border: 10px solid black;
         animation: cursor .4s step-end infinite alternate;
-    }
+    } */
     .title .sq1 p {
         @apply text-sm font-bold text-center 
         w-[90%] md:w-4/6 px-8 py-2

@@ -1,7 +1,7 @@
 <script lang="ts">
     import {l} from "$lib/stores/language.store"
     import logo from "$lib/images/logotg.svg"
-    import {setContactFormState} from "$lib/stores/form.store" 
+    import {setContactFormState, contentStore} from "$lib/stores/form.store" 
 
     function flip(evt: MouseEvent) {
         const target = evt.target as HTMLElement
@@ -38,7 +38,7 @@
                     <i class="fa-solid fa-arrow-turn-up rotate-90 text-5xl min-[400px]:text-6xl md:text-7xl mx-3 min-[400px]:mx-6 lg:mx-12"></i>
                     <li>
                         <a href="/#contact" style="border-left: none; border-right: none;" 
-                        on:click={() => {setContactFormState().showContactForm()}}>
+                        on:click={() => {contentStore.set("about") ;setContactFormState().showContactForm()}}>
                             <i class="fa-regular fa-envelope"></i>
                         </a>           
                     </li>

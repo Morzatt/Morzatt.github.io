@@ -1,3 +1,7 @@
+<svelte:head>
+    <title>{project.title} - TineoDev</title>
+</svelte:head>
+
 <script lang="ts">
     export let data;
 	import { fly } from 'svelte/transition';

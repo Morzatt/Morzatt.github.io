@@ -12,8 +12,9 @@
 
 </script>
 
-<div class="relative mt-20 md:mt-0 p-4 w-full h-fit min-h-full flex flex-col items-center justify-center {load ? "loaded" : "notload translate-x-[100%]"} transition-all duration-300 ease-linear ">
-    <button class="bb size-8 absolute top-[-3rem] md:top-4 left-4 p-2" on:click={setContactFormState().hideContactForm}><i class="fa-solid fa-arrow-left"></i></button>
+<div class="relative mt-20 md:mt-0 md:p-2 w-full h-fit min-h-full flex flex-col items-center justify-center {load ? "loaded" : "notload translate-x-[100%]"} transition-all duration-300 ease-linear ">
+    <button class="flex items-center justify-center absolute top-[-3.25rem] md:top-4 left-0 md:left-4 p-3" on:click={setContactFormState().hideContactForm}><i class="fa-solid fa-arrow-left"></i></button>
+
     <h1 class="text-5xl font-bold mb-4">Contact Me</h1>
     <form action="https://api.web3forms.com/submit" method="POST" class="{$state.slideElements ? "translate-x-[100%] blur-sm" : ""} 
     w-full h-fit min-h-[450px] md:w-4/5 lg:w-3/5 p-4

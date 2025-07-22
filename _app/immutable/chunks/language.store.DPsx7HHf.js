@@ -1,0 +1,1 @@
+import{w as n}from"./index.CbkTs4xz.js";const r=n("EN");function i(){let s;r.subscribe(t=>{s=t});const e=(t=s)=>{switch(!0){case t==="EN":r.set("ES");return;case t=="ES":r.set("EN")}},{subscribe:c}=r;return{subscribe:c,switchLang:e}}export{i as L,r as l};

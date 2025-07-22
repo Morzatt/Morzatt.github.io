@@ -75,7 +75,7 @@
                 {:else}
                     <img src="{timer}" alt="">
                 {/if}
-                <p>{`< Efficient Software />`}</p>
+                <p>{$l === "EN" ? `< Efficient Software />` : "< Software Eficiente />"}</p>
             </div>
         </div>
 
@@ -83,13 +83,30 @@
             <div class="sq3 bg-clg {load ? "":"translate-x-[-3rem]"} transition-all duration-300 ease-in-out">
 
                 <div class="main-btn-out">
-                    <button class="main-btn-in bg-black">Know More</button>
+                    <a class="main-btn-in bg-black flex" href="/#about-me">
+                        {$l === "EN" ? 
+                        "Know About Me"
+                            :
+                        "Conoce sobre Mi"
+                        }
+                    </a>
                 </div>
                 <div class="main-btn-out">
-                    <button class="main-btn-in bg-white text-black">Know More</button>
+                    <a href="/#projects" class="main-btn-in bg-white flex text-black">
+                        {$l === "EN" ? 
+                        "My Projects"
+                            :
+                        "Mis Proyectos"
+                        }
+                    </a>
                 </div>
 
-                <p>{`< Long Term Service Deployment />`}</p>
+                <p>
+                    {$l === "EN" ? 
+                        "< Long Term Service Deployment />" : 
+                        "< Servicios de Despliegue a Largo Plazo. />"}
+                    {``}
+                </p>
             </div>
         </div>
     </section>

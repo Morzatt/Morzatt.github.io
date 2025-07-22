@@ -45,9 +45,14 @@
         en: `I'm a Software Developer with a strong passion for building good, reliable and strong pieces of software. Always interested in getting involved with brand-new technologies and opportunities that allow me to grow as a professional.`,
         es: `Soy un Desarrollador de Software con una fuerte pasión por construir piezas de software de calidad, fuertes y fiables. Siempre interesado en involucrarme con nuevas tecnologías y oportunidades que me permitan desarrollarme y crecer como profesional.`
     }
+
+    const alternativeIntroduction = {
+        en: "Throughout every project, I prioritize open communication and proactive problem-solving to guarantee exceptional client satisfaction and forge strong, lasting partnerships, ultimately delivering solutions that are not just functional, but truly transformative.",
+        es: "En cada proyecto, priorizo la comunicación abierta y la resolución proactiva de problemas para garantizar una satisfacción excepcional del cliente y forjar asociaciones sólidas y duraderas, entregando en última instancia soluciones que no solo son funcionales, sino verdaderamente transformadoras."
+    }
 </script>
 
-<div class="size-full flex flex-col items-center md:flex-row md:justify-around overflow-hidden">
+<div class="size-full flex flex-col items-center md:flex-row md:justify-around overflow-hidden" id="about-me">
     <!-- LEFT SIDE / TOP SIDE-->
     <div class="flex h-full w-full md:w-2/5 justify-center items-center md:items-start ">
         <div class="size-full md:p-4 flex flex-col md:border-r-2 border-black {load ? "loaded" : "notload translate-y-[200%]"} transition-all duration-700 ease-linear">
@@ -57,7 +62,7 @@
                 <div>
                     <p>{$l === "EN" ? "Hello!" : "¡Hey, hola!"}</p>
                     <br>
-                    <p>{$l === "EN" ? `${introduction.en}` : `${introduction.es}`}</p>
+                    <p>{$l === "EN" ? `${alternativeIntroduction.en}` : `${alternativeIntroduction.es}`}</p>
                     <br>
                 </div>
 

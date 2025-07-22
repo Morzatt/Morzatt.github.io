@@ -210,7 +210,7 @@ class="relative w-full min-h-screen flex flex-col lg:flex-row items-start justif
 
 
                     <div class="border-2 border-black p-2 rounded-lg bg-clg">
-                        <h1 class="text-[1.1rem]">{project.ldescription} Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium inventore tenetur fugit? Praesentium architecto error distinctio possimus a, incidunt perferendis ipsum, non animi earum atque! Impedit porro minima expedita quia dolorem. Dicta, enim ex! Tempora sed placeat, provident veritatis consectetur quam aspernatur doloribus facere dicta nihil quia reiciendis praesentium enim.</h1>
+                        <h1 class="text-[1.1rem]">{project.ldescription}</h1>
                     </div>
 
                     <div class="w-full flex items-center justify-center">
@@ -238,10 +238,10 @@ class="relative w-full min-h-screen flex flex-col lg:flex-row items-start justif
                         </div>
                     </div>
                     
-                    <div class="grid grid-cols-1 grid-rows-4 gap-6">
+                    <div class="grid grid-cols-1 gap-6">
                         {#if project.features}
                             {#each project.features as feature}
-                                <div class="border-2 border-black bg-gray-200 ">
+                                <div class="border-2 border-black bg-gray-200">
                                     <div class="size-full border-2 border-inherit bg-gray-200 translate-x-[-0.30rem] translate-y-1">
                                         <div class="size-full border-2 border-inherit bg-gray-200 translate-x-[-0.30rem] translate-y-1">
                                             <div class="size-full border-2 border-inherit bg-white translate-x-[-0.30rem] translate-y-1 p-[0.60rem] relative">
@@ -264,7 +264,7 @@ class="relative w-full min-h-screen flex flex-col lg:flex-row items-start justif
                         </div>
                     </div>
                     
-                    <div class="w-full max-h-full grid grid-cols-2 grid- gap-2">
+                    <div class="w-full max-h-[80vh] overflow-y-auto grid grid-cols-2 grid- gap-2">
                         {#if project.images}
                             {#each project.images as image, i}
                                 <a href="/projects/{project.key}/{i}">

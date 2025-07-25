@@ -42,14 +42,15 @@
     }
 </script>
 
-<div class="w-full min-h-screen" id="projects">
+<div class="w-full" id="projects">
     <h1 class="text-7xl font-bold my-8 font-jersey">{$l === "EN" ? "Projects" : "Proyectos"}</h1>
     <div class="h-fit w-full min-h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {#each $l === "EN" ? p.enProjects : p.esProjects as project, i}
             {#if project.type === "Web Application"}
                 <div class="h-[15rem] lg:h-[17rem] xl:h-[20rem] max-w-[400px] flex items-end justify-center {load ? "" : `translate-y-[-50%]`} transition-all ease-in-out duration-[{`${((i+1)*100)}ms`}]">
                     <div class="bg-black border-2 border-black w-full h-[90%]">
-                        <div class="translate-x-[-0.4rem] translate-y-[-0.4rem] size-full relative border-2 border-black {project.bg ? `bg-[${project.bg}]` : "bg-white"}">
+                        <div class="translate-x-[-0.4rem] translate-y-[-0.4rem] size-full relative border-2 border-black 
+                        {descriptions[project.key].state ? "bg-white" : (project.bg ? project.bg : "bg-white")}">
                             <div class="top select-none"></div> 
                             <div class="bot flex items-center justify-around p-2 select-none">
                                 <span class="w-3/5 flex items-center justify-start">
@@ -65,16 +66,20 @@
                                 </span>
                             </div>
 
-                            <!-- svelte-ignore a11y-mouse-events-have-key-events -->
-                            <a class="w-full h-[83%] p-1 cursor-pointer flex flex-col items-center justify-center 
-                                        {descriptions[project.key].blur ? "blur-md" : ""} transition-all duration-100 ease-linear" 
-                                href="/projects/{project.key}"
-                                on:mouseover={() => showDescription(project.key)} 
-                                on:mouseout={() => hideDescription(project.key)}>
+                            <div class="w-full h-[83%] p-0.5">
+                                <!-- svelte-ignore a11y-mouse-events-have-key-events -->
+                                <a class="size-full overflow-hidden cursor-pointer flex flex-col items-center
+                                    {descriptions[project.key].blur ? "blur-md" : ""} transition-all duration-100 ease-linear
+                                    {descriptions[project.key].state ? "" : "justify-center"}" 
+                                    href="/projects/{project.key}"
+                                    on:mouseover={() => showDescription(project.key)} 
+                                    on:mouseout={() => hideDescription(project.key)}>
 
-                                <video src="{descriptions[project.key].state ? a : project.thumnail}" class="overflow-hidden {descriptions[project.key].state ? "size-5/6" : "size-full"}" autoplay muted loop></video>
-                                <h1 class="font-jersey text-5xl font-bold {descriptions[project.key].state ? "" : "hidden"}">{$l === "EN" ? "See More" : "Ver más"}</h1>
-                            </a>
+                                    <video src="{descriptions[project.key].state ? a : project.thumbnail}" class="overflow-hidden {descriptions[project.key].state ? "size-5/6" : `h-[100%] ${project.aditionalStyles ? project.aditionalStyles : ""}`}" autoplay muted loop></video>
+                                    <h1 class="font-jersey text-5xl font-bold {descriptions[project.key].state ? "" : "hidden"}">{$l === "EN" ? "See More" : "Ver más"}</h1>
+                                </a>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -88,15 +93,18 @@
                         </div>
 
                         <!-- svelte-ignore a11y-mouse-events-have-key-events -->
-                        <a class="w-full h-[85%] p-2 cursor-pointer flex flex-col items-center justify-center 
-                                    {descriptions[project.key].blur ? "blur-md" : ""} transition-all duration-100 ease-linear text-white" 
-                            href="/projects/{project.key}"
-                            on:mouseover={() => showDescription(project.key)} 
-                            on:mouseout={() => hideDescription(project.key)}>
+                        <div class="w-full h-[85%] overflow-hidden px-1">
+                            <a class="size-full overflow-hidden cursor-pointer flex flex-col items-center justify-center 
+                                        {descriptions[project.key].blur ? "blur-md" : ""} transition-all duration-100 ease-linear text-white" 
+                                href="/projects/{project.key}"
+                                on:mouseover={() => showDescription(project.key)} 
+                                on:mouseout={() => hideDescription(project.key)}>
 
-                            <video src="{descriptions[project.key].state ? a : project.video}" class="overflow-hidden {descriptions[project.key].state ? "filter invert size-5/6" : "size-full"}" autoplay muted loop></video>
-                            <h1 class="font-jersey text-5xl font-bold {descriptions[project.key].state ? "" : "hidden"}">{$l === "EN" ? "See More" : "Ver más"}</h1>
-                        </a>
+                                <video src="{descriptions[project.key].state ? a : project.thumbnail}" class="overflow-hidden {descriptions[project.key].state ? "filter invert size-5/6" : `size-full ${project.aditionalStyles ? project.aditionalStyles : ""}`}" autoplay muted loop></video>
+                                <h1 class="font-jersey text-5xl font-bold {descriptions[project.key].state ? "" : "hidden"}">{$l === "EN" ? "See More" : "Ver más"}</h1>
+                            </a>
+                        </div>
+
                     </div>
                 </div>
             {:else if project.type === "Mobile"}
@@ -131,5 +139,4 @@
         @apply bg-black 
         w-[100.7%] h-[17%];
     }
-    
 </style>

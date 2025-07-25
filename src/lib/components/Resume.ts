@@ -116,6 +116,7 @@ import phpIcon from "$lib/images/Logos/php.png"
 import gitIcon from "$lib/images/Logos/git.png"
 import laravelIcon from "$lib/images/Logos/laravel.png"
 import expressIcon from "$lib/images/Logos/express.png"
+import electronJsIcon from "$lib/images/Logos/electron_logo.svg"
 import cIcon from "$lib/images/Logos/c.png"
 import rustIcon from "$lib/images/Logos/rust.png"
 import kubernetesIcon from "$lib/images/Logos/kubernetes.png"
@@ -146,8 +147,8 @@ const techSkills: Technologies[] = [
                 name: "Svelte"
             },
             {
-                icon: expressIcon,
-                name: "ExpressJS"
+                icon: electronJsIcon,
+                name: "ElectronJS"
             },
         ]
     },

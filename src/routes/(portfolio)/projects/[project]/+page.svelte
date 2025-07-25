@@ -125,7 +125,7 @@
 <section transition:fly={{ duration: 200, y: 500, opacity: 0.5, easing: quintOut }}
 class="relative w-full min-h-screen flex flex-col lg:flex-row items-start justify-around lg:p-4 ease-linear duration-200 transition-all">
     <!-- LEFT / TOP --> 
-    <div class="w-full lg:w-2/4 lg:p-4 lg:px-6 min-h-[50rem]">
+    <div class="w-full lg:w-2/4 lg:p-4 lg:px-6 lg:min-h-[50rem]">
         <!-- PLAYER -->
         <div class="h-fit w-full relative rounded-md border-2 border-black bg-white shadow-[4px_7px]">
             <div class="w-full h-fit border-b-2 border-inherit">
@@ -139,7 +139,6 @@ class="relative w-full min-h-screen flex flex-col lg:flex-row items-start justif
             <div class="w-full h-[13rem] min-[370px]:h-[15rem] min-[480px]:h-[17rem] min-[580px]:h-[19rem] min-[680px]:h-[22rem] md:h-[24rem] min-[860px]:h-[26rem] lg:h-[20rem] p-1 flex flex-col items-center justify-center 
                     transition-all duration-100 ease-linear text-white">
                 <!-- <video src="{project.video}" class="overflow-hidden size-full rounded-md" autoplay muted loop></video> -->
-
                 <iframe src="{project.video}" width="100%" height="100%" allow="autoplay" title="project-video" class="rounded-md"></iframe>
             </div>
         </div>
@@ -183,9 +182,8 @@ class="relative w-full min-h-screen flex flex-col lg:flex-row items-start justif
     </div>
 
     <!-- RIGHT / BOTTOM -->
-    <div class="w-full h-max min-h-[50rem] lg:w-2/4 flex items-center justify-start mt-[9rem] lg:mt-0 relative">
-
-        <div class="absolute  bottom-[-3rem] left-[50%] translate-x-[-50%] z-50
+    <div class="w-full h-max min-h-[45rem] lg:w-2/4 flex items-center justify-start mt-[6rem] lg:mt-0 relative">
+        <div class="absolute bottom-[-3rem] left-[50%] translate-x-[-50%] z-50
         w-fit gap-4 h-[fit] bg-inherit flex items-center justify-start p-1 select-none rounded-md transition-all duration-300 ease-linear">
             <b class="size-4 rounded-full {currentIndex === 0 ? "bg-gray-800" : "bg-gray-400"}"></b>
             <b class="size-4 rounded-full {currentIndex === 1 ? "bg-gray-800" : "bg-gray-400"}"></b>
@@ -196,18 +194,17 @@ class="relative w-full min-h-screen flex flex-col lg:flex-row items-start justif
             <button class="slider-button translate-x-[-5px] translate-y-[5px] active:translate-x-0 active:translate-y-0" on:click={prevPage}>{`<`}</button>
         </div>
 
-        <div class="w-full lg:w-[90%] h-[65rem] md:h-[50rem] p-1 relative overflow-hidden select-none ">
+        <div class="w-full lg:w-[90%] h-[45rem] xl:h-[60rem] p-1 relative overflow-hidden select-none">
             <!-- svelte-ignore a11y-no-static-element-interactions -->
             <!-- MAIN CAROUSEL -->
             <div class="main-carousel duration-500" on:dragstart|preventDefault bind:this={slider}>
                 <!-- CAROUSEL CELL #1 -->
-                <div class="carousel-cell no-scrollbar z-20" on:dragstart|preventDefault>
+                <div class="carousel-cell z-20 max-h-[45rem] xl:max-h-[55rem] overflow-y-auto" on:dragstart|preventDefault>
                     <div class="w-full flex items-center justify-center">
                         <div class="main-title-out ">
                             <h2 class="main-title-in bg-black">{$l === "EN" ? "Description" : "Descripción"}</h2>
                         </div>
                     </div>
-
 
                     <div class="border-2 border-black p-2 rounded-lg bg-clg">
                         <h1 class="text-[1.1rem]">{project.ldescription}</h1>
@@ -230,8 +227,7 @@ class="relative w-full min-h-screen flex flex-col lg:flex-row items-start justif
                 </div>
 
                 <!-- CAROUSEL CELL #2 -->
-                <div class="carousel-cell z-10">
-
+                <div class="carousel-cell z-10 max-h-[45rem] xl:max-h-[55rem] w-full overflow-x-visible overflow-y-auto">
                     <div class="w-full flex items-center justify-center">
                         <div class="main-title-out ">
                             <h2 class="main-title-in bg-black">{$l === "EN" ? "Features" : "Características"}</h2>
@@ -264,7 +260,7 @@ class="relative w-full min-h-screen flex flex-col lg:flex-row items-start justif
                         </div>
                     </div>
                     
-                    <div class="w-full max-h-[80vh] overflow-y-auto grid grid-cols-2 grid- gap-2">
+                    <div class="w-full max-h-[35rem] xl:max-h-[55rem] overflow-y-auto grid grid-cols-2 grid- gap-2">
                         {#if project.images}
                             {#each project.images as image, i}
                                 <a href="/projects/{project.key}/{i}">

@@ -128,7 +128,7 @@
         </div>
 
         {#key isVisible}
-            <div bind:this={element} class="size-full lg:w-[90%] lg:h-[90vh] my-2">
+            <div bind:this={element} class="size-full xl:w-[90%] lg:h-[90vh] my-2">
                 {#if content === "about"}
                     <AboutMe/>               
                 {:else if content === "resume"}
@@ -140,7 +140,7 @@
 
     <br>
 
-    <section class="w-full h-fit min-h-screen mt-20">
+    <section class="w-full h-fit min-h-[30rem] mt-20">
         <Projects/>
     </section>
 </main>

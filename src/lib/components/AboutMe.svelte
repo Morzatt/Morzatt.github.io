@@ -42,8 +42,8 @@
     ]
 
     const introduction = {
-        en: `I'm a Software Developer with a strong passion for building good, reliable and strong pieces of software. Always interested in getting involved with brand-new technologies and opportunities that allow me to grow as a professional.`,
-        es: `Soy un Desarrollador de Software con una fuerte pasión por construir piezas de software de calidad, fuertes y fiables. Siempre interesado en involucrarme con nuevas tecnologías y oportunidades que me permitan desarrollarme y crecer como profesional.`
+        en: `I'm Carlos! I'm a Software Developer with a strong passion for building good, reliable and strong pieces of software. I'm always eager to embrace new challenges and master cutting-edge technologies, constantly striving to elevate my skills and deliver my absolute best in every project.`,
+        es: `Me llamo Carlos! Soy un Desarrollador de Software con una fuerte pasión por construir piezas de software de calidad, fuertes y fiables. Siempre estoy emocionado de afrontar nuevos retos y dominar nuevas tecnologías, esforzándome constantemente por mejorar mis habilidades y dar lo mejor de mí mismo en cada proyecto.`
     }
 
     const alternativeIntroduction = {
@@ -52,26 +52,27 @@
     }
 </script>
 
-<div class="size-full flex flex-col items-center md:flex-row md:justify-around overflow-hidden" id="about-me">
+<div class="size-full flex flex-col items-center md:flex-row md:justify-between overflow-hidden" id="about-me">
     <!-- LEFT SIDE / TOP SIDE-->
     <div class="flex h-full w-full md:w-2/5 justify-center items-center md:items-start ">
-        <div class="size-full md:p-4 flex flex-col md:border-r-2 border-black {load ? "loaded" : "notload translate-y-[200%]"} transition-all duration-700 ease-linear">
-            <div class="size-full mt-4 p-4 rounded-xl border-2 border-black  spacer slop2 text-white
+        <div class="size-full md:p-2 xl:p-4 flex flex-col md:border-r-2 border-black {load ? "loaded" : "notload translate-y-[200%]"} transition-all duration-700 ease-linear">
+            <div class="size-full mt-4 p-4 rounded-xl border-2 border-black  spacer slop2 text-white relative pb-[14rem]
             {load ? "translate-x-0" : "translate-x-[200%]"} transition-all duration-1000 ease-in-out overflow-hidden
             flex flex-col items-start justify-between">
                 <div>
                     <p>{$l === "EN" ? "Hello!" : "¡Hey, hola!"}</p>
                     <br>
-                    <p>{$l === "EN" ? `${alternativeIntroduction.en}` : `${alternativeIntroduction.es}`}</p>
+                    <p>{$l === "EN" ? `${introduction.en}` : `${introduction.es}`}</p>
                     <br>
                 </div>
 
-                <div class="w-full min-h-[15rem] relative">
-                    <img src="{avatargif}" alt="" class="size-[14rem] md:scale-x-[1.10] lg:scale-x-100 absolute right-[-5%] bottom-[-10%]">
-                </div>
+                <!-- <div class="w-full min-h-[15rem] relative"> -->
+                    <img src="{avatargif}" alt="" class="size-[14rem] md:scale-x-[1.10] lg:scale-x-100 absolute right-[-2%] bottom-[0px]">
+                <!-- </div> -->
             </div>
         </div>
     </div>
+
     <!-- RIGHT SIDE / BOTTOM SIDE --> 
     <div class="flex flex-col md:justify-center md:items-start h-full w-full md:w-3/5 {$state.slideElements ? "translate-x-[100%] blur-sm" : ""} transition-all duration-200 ease-out">
         {#if !$state.contactForm}
@@ -79,7 +80,7 @@
             <div class="md:p-2 h-fit w-full md:h-3/5 lg:p-2 mt-8 md:mt-0 md:border-b-2 border-black  {load ? "loaded" : "notload translate-y-[200%]"} transition-all duration-700 ease-linear">
                 <h1 class="text-3xl font-bold text-center md:text-left">{$l === "EN" ? "Introduction" : "Presentación"}</h1>
                 <div class="w-full h-fit md:h-4/6 mt-4 rounded-xl rounded-tl-none border-2 border-black bg-white p-4 pb-[8rem] md:p-6 spacer slop min-h-[14rem]">
-                    <p>{$l === "EN" ? `${introduction.en}` : `${introduction.es}`}</p>
+                    <p>{$l === "EN" ? `${alternativeIntroduction.en}` : `${alternativeIntroduction.es}`}</p>
                 </div>
             </div>
             <!-- GET IN TOUCH -->

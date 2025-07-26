@@ -182,7 +182,7 @@ class="relative w-full min-h-screen flex flex-col lg:flex-row items-start justif
     </div>
 
     <!-- RIGHT / BOTTOM -->
-    <div class="w-full h-max min-h-[45rem] lg:w-2/4 flex items-center justify-start mt-[6rem] lg:mt-0 relative">
+    <div class="w-full h-[45rem] xl:h-[50rem] lg:w-2/4 flex items-center justify-start mt-[6rem] lg:mt-0 relative">
         <div class="absolute bottom-[-3rem] left-[50%] translate-x-[-50%] z-50
         w-fit gap-4 h-[fit] bg-inherit flex items-center justify-start p-1 select-none rounded-md transition-all duration-300 ease-linear">
             <b class="size-4 rounded-full {currentIndex === 0 ? "bg-gray-800" : "bg-gray-400"}"></b>
@@ -194,12 +194,12 @@ class="relative w-full min-h-screen flex flex-col lg:flex-row items-start justif
             <button class="slider-button translate-x-[-5px] translate-y-[5px] active:translate-x-0 active:translate-y-0" on:click={prevPage}>{`<`}</button>
         </div>
 
-        <div class="w-full lg:w-[90%] h-[45rem] xl:h-[60rem] p-1 relative overflow-hidden select-none">
+        <div class="w-full lg:w-[90%] h-[44rem] xl:h-[49rem] p-1 relative overflow-hidden select-none">
             <!-- svelte-ignore a11y-no-static-element-interactions -->
             <!-- MAIN CAROUSEL -->
             <div class="main-carousel duration-500" on:dragstart|preventDefault bind:this={slider}>
                 <!-- CAROUSEL CELL #1 -->
-                <div class="carousel-cell z-20 max-h-[45rem] xl:max-h-[55rem] overflow-y-auto" on:dragstart|preventDefault>
+                <div class="carousel-cell z-20 max-h-[40rem] xl:max-h-[44rem] overflow-y-auto" on:dragstart|preventDefault>
                     <div class="w-full flex items-center justify-center">
                         <div class="main-title-out ">
                             <h2 class="main-title-in bg-black">{$l === "EN" ? "Description" : "Descripción"}</h2>
@@ -227,7 +227,7 @@ class="relative w-full min-h-screen flex flex-col lg:flex-row items-start justif
                 </div>
 
                 <!-- CAROUSEL CELL #2 -->
-                <div class="carousel-cell z-10 max-h-[45rem] xl:max-h-[55rem] w-full overflow-x-visible overflow-y-auto">
+                <div class="carousel-cell z-10 max-h-[40rem] xl:max-h-[48rem] w-full overflow-x-visible overflow-y-auto">
                     <div class="w-full flex items-center justify-center">
                         <div class="main-title-out ">
                             <h2 class="main-title-in bg-black">{$l === "EN" ? "Features" : "Características"}</h2>
@@ -260,7 +260,7 @@ class="relative w-full min-h-screen flex flex-col lg:flex-row items-start justif
                         </div>
                     </div>
                     
-                    <div class="w-full max-h-[35rem] xl:max-h-[55rem] overflow-y-auto grid grid-cols-2 grid- gap-2">
+                    <div class="w-full max-h-[38rem] xl:max-h-[44rem] overflow-y-auto grid grid-cols-2 grid- gap-2">
                         {#if project.images}
                             {#each project.images as image, i}
                                 <a href="/projects/{project.key}/{i}">
@@ -269,7 +269,6 @@ class="relative w-full min-h-screen flex flex-col lg:flex-row items-start justif
                             {/each}                       
                         {/if}
                     </div>
-
                 </div>
             </div>
         </div>

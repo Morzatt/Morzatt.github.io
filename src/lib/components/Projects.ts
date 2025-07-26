@@ -7,7 +7,6 @@
 
 // CAEJPA
 import caejpavid from "$lib/images/projects/caejpavid.mp4"
-import cli from "$lib/images/projects/cli.mp4"
 import caejpa1 from "$lib/images/projects/caejpa1.png"
 import caejpa2 from "$lib/images/projects/caejpa2.png"
 import caejpa3 from "$lib/images/projects/caejpa3.png"
@@ -21,11 +20,8 @@ import eritron4 from "$lib/images/projects/eritron/4.png"
 import eritron5 from "$lib/images/projects/eritron/5.png"
 import eritron6 from "$lib/images/projects/eritron/6.png"
 import eritron7 from "$lib/images/projects/eritron/7.png"
-import eritron8 from "$lib/images/projects/eritron/8.png"
 import eritron9 from "$lib/images/projects/eritron/9.png"
 import eritron10 from "$lib/images/projects/eritron/10.png"
-import eritron11 from "$lib/images/projects/eritron/11.png"
-import eritron12 from "$lib/images/projects/eritron/12.png"
 import eritron13 from "$lib/images/projects/eritron/13.png"
 import eritron14 from "$lib/images/projects/eritron/14.png"
 import eritron15 from "$lib/images/projects/eritron/15.png"
@@ -49,6 +45,31 @@ import carelog10 from "$lib/images/projects/carelog/10.png"
 import carelog11 from "$lib/images/projects/carelog/11.png"
 import carelog12 from "$lib/images/projects/carelog/12.png"
 import carelog13 from "$lib/images/projects/carelog/13.png"
+
+// SCHOOL
+import schoolThumbnail from "$lib/images/projects/school/school_thumbnail.mp4"
+import school1 from "$lib/images/projects/school/1.png"
+import school2 from "$lib/images/projects/school/2.png"
+import school3 from "$lib/images/projects/school/3.png"
+import school4 from "$lib/images/projects/school/4.png"
+import school5 from "$lib/images/projects/school/5.png"
+import school6 from "$lib/images/projects/school/6.png"
+import school7 from "$lib/images/projects/school/7.png"
+import school8 from "$lib/images/projects/school/8.png"
+import school9 from "$lib/images/projects/school/9.png"
+import school10 from "$lib/images/projects/school/10.png"
+import school11 from "$lib/images/projects/school/11.png"
+import school12 from "$lib/images/projects/school/12.png"
+import school13 from "$lib/images/projects/school/13.png"
+import school15 from "$lib/images/projects/school/15.png"
+import school16 from "$lib/images/projects/school/16.png"
+import school17 from "$lib/images/projects/school/17.png"
+import school18 from "$lib/images/projects/school/18.png"
+import school19 from "$lib/images/projects/school/19.png"
+import school20 from "$lib/images/projects/school/20.png"
+import school21 from "$lib/images/projects/school/21.png"
+import school22 from "$lib/images/projects/school/22.png"
+import school23 from "$lib/images/projects/school/23.png"
 
 
 export type Project = {
@@ -75,7 +96,6 @@ export type Project = {
     aditionalStyles?: string,
 }
 
-let string: string = "";
 // ICONS IMPORT
 import githubIcon from "$lib/images/Logos/github.png"
 import svelteIcon from "$lib/images/Logos/svelte.png"
@@ -116,10 +136,25 @@ const enProjects: Project[] = [
         description: "Blood Bank Management Application: Comprehensive solution for administrative and operational management",
         ldescription: "Complete solution for the administrative and operational management of blood bank's activities. It facilitates the detailed registration of donors, including personal and contact information, while allows for precise control of donations, from date and blood type to processing status. The platform also manages the recording of laboratory results associated with each sample, ensuring safety and traceability. Furthermore, it efficiently organizes data from collaborating institutions, such as hospitals and clinics, optimizing coordination and distribution. Its intuitive design aims to enhance efficiency and security across all key blood bank processes.",
 
-        video: "https://drive.google.com/file/d/1Hi7M1GhekcBBQXZFOJStdpgTk7BtQt7Y/preview",
+        video: "https://drive.google.com/file/d/1cF9yKk9DIk7PjJPTrDEKs04RpUKiR8Nc/preview",
         thumbnail: eritronThumbnail,
         images: [
-            eritron1, eritron2, eritron3, eritron4, eritron5, eritron6, eritron7, eritron8, eritron9, eritron10, eritron11, eritron12, eritron13, eritron14, eritron15, eritron16, eritron17, eritron18, eritron19,
+            eritron1,
+            eritron2,
+            eritron3,
+            eritron4,
+            eritron5,
+            eritron6,
+            eritron7,
+            eritron9,
+            eritron10,
+            eritron13,
+            eritron14,
+            eritron15,
+            eritron16,
+            eritron17,
+            eritron18,
+            eritron19,
         ],
 
         type: "Web Application",
@@ -149,7 +184,7 @@ const enProjects: Project[] = [
     // CARELOG
     {
         key: "carelog",
-        title: "CareLog C.A",
+        title: "CareLog",
 
         description: "Tracks daily in/out times, manages work permits and sick leave (with photo evidence), and offers easy attendance visualization and queries",
         ldescription: "Comprehensive attendance tracking application, designed to simplify and optimize workforce management for any company. It provides robust features for registering and managing every employee's profile, centralizing essential data. Key personnel can be designated to take daily attendance, ensuring accurate logging of in and out times. The app also efficiently handles work permits and health-related time off, offering the crucial capability to include photos of physical vouchers for verified documentation. With powerful tools for visualizing and querying attendance records, managers can easily track punctuality, monitor absences, and generate insightful reports, leading to improved operational efficiency and informed decision-making.",
@@ -186,10 +221,12 @@ const enProjects: Project[] = [
         description: "Streamlines school operations, managing student, professor, and employee data/documents, plus classrooms and schedules. Centralize your school's core administration effortlessly.",
         ldescription: "Comprehensive school management application, designed to centralize and optimize all critical administrative and operational tasks. It provides robust capabilities for registering and managing student data and documents, ensuring easy access and organized records, while also efficiently handling professor and employee profiles, including their data and documents, simplifying HR processes. Furthermore, it offers powerful tools for managing classrooms and creating detailed class schedules, streamlining academic planning. Aims to enhance efficiency, communication, and organization across the entire educational institution, making daily operations smoother for everyone involved.",
 
-        video: "https://drive.google.com/file/d/1Hi7M1GhekcBBQXZFOJStdpgTk7BtQt7Y/preview",
-        thumbnail: eritronThumbnail,
+        video: "https://drive.google.com/file/d/1ficpUSFt3GzwaQOBxt1L5IrcNP6saoEf/preview",
+        thumbnail: schoolThumbnail,
         images: [
-            eritron1, eritron2, eritron3, eritron4, eritron5, eritron6, eritron7, eritron8, eritron9, eritron10, eritron11, eritron12, eritron13, eritron14, eritron15, eritron16, eritron17, eritron18, eritron19,
+            school1, school2, school3, school4, school5, school6, school7, school8, school9, 
+            school10, school11, school12, school13, school15, school16, school17, school18, 
+            school19, school20, school21, school22, school23,
         ],
 
         type: "Web Application",
@@ -206,7 +243,7 @@ const enProjects: Project[] = [
             "Academic Control"
         ],
 
-        links: [{ name: "Github", icon: githubIcon, link: "https://github.com/school" }],
+        links: [{ name: "Github", icon: githubIcon, link: "https://github.com/Morzatt/school" }],
 
         features: [
             {
@@ -233,8 +270,8 @@ const enProjects: Project[] = [
             { name: "PostgreSQL", icon: postgreIcon },
         ],
 
-        bg: "bg-[#f8f8f8]",
-        aditionalStyles: "scale-110"
+        bg: "bg-[#e3e9f4]",
+        aditionalStyles: "scale-105"
     },
 
     // CAEJPA
@@ -278,10 +315,10 @@ const esProjects: Project[] = [
         description: "Aplicación de Gestión de Banco de Sangre: Solución integral para la administración y operación",
         ldescription: "Solución integral para la gestión de las actividades administrativas y operativas de bancos de sangre. Facilita el registro detallado de donantes, incluyendo información personal y de contacto, a su vez que permite el control preciso de las donaciones, desde la fecha y tipo de sangre hasta el estado de procesamiento. La plataforma también gestiona el registro de resultados de laboratorio asociados a cada muestra, asegurando la seguridad y trazabilidad. Además, organiza eficientemente los datos de instituciones colaboradoras, como hospitales y clínicas, optimizando la coordinación y distribución. Su diseño intuitivo busca mejorar la eficiencia y la seguridad en todos los procesos clave del banco de sangre.",
 
-        video: "https://drive.google.com/file/d/1Hi7M1GhekcBBQXZFOJStdpgTk7BtQt7Y/preview",
+        video: "https://drive.google.com/file/d/1cF9yKk9DIk7PjJPTrDEKs04RpUKiR8Nc/preview",
         thumbnail: eritronThumbnail,
         images: [
-            eritron1, eritron2, eritron3, eritron4, eritron5, eritron6, eritron7, eritron8, eritron9, eritron10, eritron11, eritron12, eritron13, eritron14, eritron15, eritron16, eritron17, eritron18, eritron19,
+            eritron1, eritron2, eritron3, eritron4, eritron5, eritron6, eritron7, eritron9, eritron10, eritron13, eritron14, eritron15, eritron16, eritron17, eritron18, eritron19,
         ],
 
         type: "Web Application",
@@ -310,7 +347,7 @@ const esProjects: Project[] = [
     // CARELOG
     {
         key: "carelog",
-        title: "CareLog C.A",
+        title: "CareLog",
 
         description: "Registra entradas/salidas, gestiona permisos y bajas médicas (con foto), y permite visualizar y consultar asistencias fácilmente",
         ldescription: "Aplicación de gestión de asistencia diseñada para simplificar y optimizar la administración de personal en cualquier empresa. Ofrece funciones robustas para el registro y manejo de cada perfil de empleado, centralizando datos esenciales. Personal clave puede ser designado para registrar la asistencia diaria, asegurando un control preciso de horarios de entrada y salida. La aplicación también gestiona eficientemente permisos de trabajo y ausencias por salud, con la capacidad crucial de incluir fotos de comprobantes físicos para verificación documentada. Con potentes herramientas para visualizar y consultar registros de asistencia, los gerentes pueden monitorear fácilmente puntualidad, ausencias y generar informes útiles, mejorando la eficiencia operativa y la toma de decisiones.",
@@ -342,15 +379,17 @@ const esProjects: Project[] = [
     // SCHOOL 
     {
         key: "school",
-        title: "NexusVital",
+        title: "ScholaDesk",
 
         description: "Aplicación destinada a optimizar las operaciones escolares más comunes: gestionando datos/documentos de estudiantes, profesores y empleados, además de aulas y horarios. Centraliza la administración escolar sin esfuerzo.",
         ldescription: "Completa aplicación de gestión escolar, diseñada para centralizar y optimizar todas las tareas administrativas y operativas más críticas. Ofrece capacidades robustas para el registro y manejo de datos y documentos de estudiantes, asegurando un acceso fácil y registros organizados. La aplicación también gestiona eficientemente los perfiles de profesores y empleados, incluyendo sus datos y documentos, simplificando los procesos de RRHH. Además, proporciona herramientas potentes para la administración de aulas y la creación de horarios de clases detallados, agilizando la planificación académica. Busca mejorar la eficiencia, la comunicación y la organización en toda la institución educativa, facilitando las operaciones diarias para todos los involucrados.",
 
-        video: "https://drive.google.com/file/d/1Hi7M1GhekcBBQXZFOJStdpgTk7BtQt7Y/preview",
-        thumbnail: eritronThumbnail,
+        video: "https://drive.google.com/file/d/1ficpUSFt3GzwaQOBxt1L5IrcNP6saoEf/preview",
+        thumbnail: schoolThumbnail,
         images: [
-            eritron1, eritron2, eritron3, eritron4, eritron5, eritron6, eritron7, eritron8, eritron9, eritron10, eritron11, eritron12, eritron13, eritron14, eritron15, eritron16, eritron17, eritron18, eritron19,
+            school1, school2, school3, school4, school5, school6, school7, school8, school9, 
+            school10, school11, school12, school13, school15, school16, school17, school18, 
+            school19, school20, school21, school22, school23,
         ],
 
         type: "Web Application",
@@ -367,7 +406,7 @@ const esProjects: Project[] = [
             "Control Académico"
         ],
 
-        links: [{ name: "Github", icon: githubIcon, link: "https://github.com/Morzatt" }],
+        links: [{ name: "Github", icon: githubIcon, link: "https://github.com/Morzatt/school" }],
 
         features: [
             {
@@ -393,8 +432,8 @@ const esProjects: Project[] = [
             { name: "TailwindCSS", icon: tailwindIcon },
             { name: "PostgreSQL", icon: postgreIcon },
         ],
-        bg: "bg-[#f8f8f8]",
-        aditionalStyles: "scale-110"
+        bg: "bg-[#e3e9f4]",
+        aditionalStyles: "scale-105"
     },
 
     // CAEJPA

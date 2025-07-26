@@ -30,7 +30,7 @@
         {
             name: "WhatsApp",
             icon: whatsappIcon,
-            link: "https://web.whatsapp.com/",
+            link: "https://wa.me/584161028853?text=Hi!%20I'd%20like%20to%20talk%20about%20a%20project",
             direction: "@crtgdev"
         },
         {
